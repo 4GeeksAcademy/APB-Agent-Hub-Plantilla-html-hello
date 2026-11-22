@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/><style>:root{--c-on-background:15 23 42;--c-on-secondary:255 255 255;--c-surface-tint:73 75 214;--c-surface-container-high:228 232 242;--c-tertiary-container:220 38 38;--c-on-surface:15 23 42;--c-secondary-fixed:5 150 105;--c-surface:244 246 251;--c-on-primary-fixed:7 0 108;--c-error:220 38 38;--c-error-container:254 226 226;--c-surface-variant:216 222 236;--c-on-primary:255 255 255;--c-tertiary-fixed-dim:255 178 183;--c-secondary-fixed-dim:78 222 163;--c-surface-container-lowest:255 255 255;--c-on-primary-fixed-variant:47 46 190;--c-surface-container:255 255 255;--c-inverse-primary:192 193 255;--c-surface-dim:244 246 251;--c-tertiary:220 38 38;--c-on-secondary-fixed-variant:0 82 54;--c-on-secondary-fixed:0 33 19;--c-secondary-container:187 247 208;--c-on-tertiary-fixed-variant:146 0 42;--c-outline:100 116 139;--c-on-secondary-container:0 56 36;--c-secondary:0 135 90;--c-primary-fixed:225 224 255;--c-primary-fixed-dim:192 193 255;--c-on-surface-variant:71 85 105;--c-primary-container:225 224 255;--c-on-tertiary-container:91 0 23;--c-on-error:255 255 255;--c-on-tertiary:255 255 255;--c-inverse-on-surface:241 245 249;--c-outline-variant:203 213 225;--c-on-primary-container:16 0 169;--c-on-tertiary-fixed:64 0 13;--c-background:244 246 251;--c-primary:73 75 214;--c-tertiary-fixed:255 218 219;--c-surface-bright:255 255 255;--c-inverse-surface:15 23 42;--c-on-error-container:153 27 27;--c-surface-container-highest:216 222 236;--c-surface-container-low:237 240 247}html.dark{--c-on-background:218 226 253;--c-on-secondary:0 56 36;--c-surface-tint:192 193 255;--c-surface-container-high:34 42 61;--c-tertiary-container:255 81 106;--c-on-surface:218 226 253;--c-secondary-fixed:111 251 190;--c-surface:11 19 38;--c-on-primary-fixed:7 0 108;--c-error:255 180 171;--c-error-container:147 0 10;--c-surface-variant:45 52 73;--c-on-primary:16 0 169;--c-tertiary-fixed-dim:255 178 183;--c-secondary-fixed-dim:78 222 163;--c-surface-container-lowest:6 14 32;--c-on-primary-fixed-variant:47 46 190;--c-surface-container:23 31 51;--c-inverse-primary:73 75 214;--c-surface-dim:11 19 38;--c-tertiary:255 178 183;--c-on-secondary-fixed-variant:0 82 54;--c-on-secondary-fixed:0 33 19;--c-secondary-container:0 165 114;--c-on-tertiary-fixed-variant:146 0 42;--c-outline:144 143 160;--c-on-secondary-container:0 49 31;--c-secondary:78 222 163;--c-primary-fixed:225 224 255;--c-primary-fixed-dim:192 193 255;--c-on-surface-variant:199 196 215;--c-primary-container:128 131 255;--c-on-tertiary-container:91 0 23;--c-on-error:105 0 5;--c-on-tertiary:103 0 27;--c-inverse-on-surface:40 48 68;--c-outline-variant:70 69 84;--c-on-primary-container:13 0 150;--c-on-tertiary-fixed:64 0 13;--c-background:11 19 38;--c-primary:192 193 255;--c-tertiary-fixed:255 218 219;--c-surface-bright:49 57 77;--c-inverse-surface:218 226 253;--c-on-error-container:255 218 214;--c-surface-container-highest:45 52 73;--c-surface-container-low:19 27 46}@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"rgb(var(--c-on-background) / <alpha-value>)","on-secondary":"rgb(var(--c-on-secondary) / <alpha-value>)","surface-tint":"rgb(var(--c-surface-tint) / <alpha-value>)","surface-container-high":"rgb(var(--c-surface-container-high) / <alpha-value>)","tertiary-container":"rgb(var(--c-tertiary-container) / <alpha-value>)","on-surface":"rgb(var(--c-on-surface) / <alpha-value>)","secondary-fixed":"rgb(var(--c-secondary-fixed) / <alpha-value>)","surface":"rgb(var(--c-surface) / <alpha-value>)","on-primary-fixed":"rgb(var(--c-on-primary-fixed) / <alpha-value>)","error":"rgb(var(--c-error) / <alpha-value>)","error-container":"rgb(var(--c-error-container) / <alpha-value>)","surface-variant":"rgb(var(--c-surface-variant) / <alpha-value>)","on-primary":"rgb(var(--c-on-primary) / <alpha-value>)","tertiary-fixed-dim":"rgb(var(--c-tertiary-fixed-dim) / <alpha-value>)","secondary-fixed-dim":"rgb(var(--c-secondary-fixed-dim) / <alpha-value>)","surface-container-lowest":"rgb(var(--c-surface-container-lowest) / <alpha-value>)","on-primary-fixed-variant":"rgb(var(--c-on-primary-fixed-variant) / <alpha-value>)","surface-container":"rgb(var(--c-surface-container) / <alpha-value>)","inverse-primary":"rgb(var(--c-inverse-primary) / <alpha-value>)","surface-dim":"rgb(var(--c-surface-dim) / <alpha-value>)","tertiary":"rgb(var(--c-tertiary) / <alpha-value>)","on-secondary-fixed-variant":"rgb(var(--c-on-secondary-fixed-variant) / <alpha-value>)","on-secondary-fixed":"rgb(var(--c-on-secondary-fixed) / <alpha-value>)","secondary-container":"rgb(var(--c-secondary-container) / <alpha-value>)","on-tertiary-fixed-variant":"rgb(var(--c-on-tertiary-fixed-variant) / <alpha-value>)","outline":"rgb(var(--c-outline) / <alpha-value>)","on-secondary-container":"rgb(var(--c-on-secondary-container) / <alpha-value>)","secondary":"rgb(var(--c-secondary) / <alpha-value>)","primary-fixed":"rgb(var(--c-primary-fixed) / <alpha-value>)","primary-fixed-dim":"rgb(var(--c-primary-fixed-dim) / <alpha-value>)","on-surface-variant":"rgb(var(--c-on-surface-variant) / <alpha-value>)","primary-container":"rgb(var(--c-primary-container) / <alpha-value>)","on-tertiary-container":"rgb(var(--c-on-tertiary-container) / <alpha-value>)","on-error":"rgb(var(--c-on-error) / <alpha-value>)","on-tertiary":"rgb(var(--c-on-tertiary) / <alpha-value>)","inverse-on-surface":"rgb(var(--c-inverse-on-surface) / <alpha-value>)","outline-variant":"rgb(var(--c-outline-variant) / <alpha-value>)","on-primary-container":"rgb(var(--c-on-primary-container) / <alpha-value>)","on-tertiary-fixed":"rgb(var(--c-on-tertiary-fixed) / <alpha-value>)","background":"rgb(var(--c-background) / <alpha-value>)","primary":"rgb(var(--c-primary) / <alpha-value>)","tertiary-fixed":"rgb(var(--c-tertiary-fixed) / <alpha-value>)","surface-bright":"rgb(var(--c-surface-bright) / <alpha-value>)","inverse-surface":"rgb(var(--c-inverse-surface) / <alpha-value>)","on-error-container":"rgb(var(--c-on-error-container) / <alpha-value>)","surface-container-highest":"rgb(var(--c-surface-container-highest) / <alpha-value>)","surface-container-low":"rgb(var(--c-surface-container-low) / <alpha-value>)"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"gutter":"1rem","space-md":"0.75rem","space-2xs":"0.125rem","gutter-mobile":"0.75rem","space-lg":"1.25rem","space-xs":"0.25rem","margin":"2rem","margin-mobile":"1rem","space-2xl":"2.5rem","space-sm":"0.5rem","space-xl":"1.75rem"},fontFamily:{"code-num":["Geist"],"label-md":["Geist"],"body-sm":["Geist"],"headline-sm":["Space Grotesk"],"headline-md":["Space Grotesk"],"body-md":["Geist"],"display-lg":["Space Grotesk"],"headline-xl-mobile":["Space Grotesk"],"label-sm":["Geist"],"headline-xl":["Space Grotesk"],"body-lg":["Geist"],"headline-lg":["Space Grotesk"],"display-lg-mobile":["Space Grotesk"]},fontSize:{"code-num":["13px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.06em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",letterSpacing:"0em",fontWeight:"400"}],"headline-sm":["15px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"600"}],"headline-md":["18px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"400"}],"display-lg":["48px",{lineHeight:"52px",letterSpacing:"-0.03em",fontWeight:"700"}],"headline-xl-mobile":["24px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"600"}],"headline-xl":["32px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg-mobile":["32px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased transition-colors duration-200"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between py-6 transition-colors duration-200"><div class="flex flex-col gap-6"><div class="px-6 flex items-center gap-3"><div class="w-8 h-8 bg-primary-container text-on-primary-container flex items-center justify-center font-headline-md font-bold"><span class="material-symbols-outlined text-[20px]">smart_toy</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface">Agent-Hub</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Internal Core</span></div></div><div class="px-4"><div class="font-label-sm text-label-sm uppercase text-outline px-3 mb-2 tracking-widest">Operaciones</div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-highest text-primary font-bold"><a aria-current="page" class="flex items-center gap-3 px-3 py-2 transition-colors bg-surface-container-highest text-primary font-bold" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="gestion-de-usuarios" href="#"><span class="material-symbols-outlined text-[20px]">manage_accounts</span><span>Gestión de usuarios</span></a><a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="gestion-de-agentes" href="#"><span class="material-symbols-outlined text-[20px]">memory</span><span>Gestión de agentes</span></a><a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="skills" href="#"><span class="material-symbols-outlined text-[20px]">psychology</span><span>Skills</span></a><a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="contrataciones-de-agentes" href="#"><span class="material-symbols-outlined text-[20px]">handshake</span><span>Contrataciones de agentes</span></a><a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md" data-path="log-de-errores" href="#"><span class="material-symbols-outlined text-[20px]">terminal</span><span>Log de errores</span></a></nav></div></div><div class="px-4"><div class="bg-surface-container p-3 flex items-center justify-between"><div class="flex items-center gap-2"><div class="w-2 h-2 bg-secondary"></div><span class="font-code-num text-code-num text-on-surface-variant">v4.1.0-prod</span></div><span class="font-label-sm text-label-sm uppercase px-1.5 py-0.5 bg-surface-container-highest text-secondary-fixed">ONLINE</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 px-8 flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-colors duration-200"><div class="flex items-center gap-3 w-96"><div class="w-full flex items-center gap-2 px-3 py-1.5 bg-surface-container-low text-on-surface-variant focus-within:text-on-surface"><span class="material-symbols-outlined text-[18px]">search</span><input class="w-full bg-transparent border-0 outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline" placeholder="Buscar telemetría, agentes o identidades..." type="text"/></div></div><div class="flex items-center gap-4"><button class="w-9 h-9 flex items-center justify-center bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer" id="theme-toggle" title="Cambiar tema" type="button"><span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span></button><button class="relative w-9 h-9 flex items-center justify-center bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Notificaciones de sistema" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 bg-tertiary-container"></span></button><div class="h-6 w-px bg-surface-variant mx-1"></div><div class="flex items-center gap-3 pl-1"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface uppercase">Admin root</span><span class="font-label-sm text-label-sm text-outline">SecOps Admin</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 px-8 min-h-screen bg-background transition-colors duration-200"><div class="flex flex-col w-full pb-12 gap-8">
+<!-- 1. Encabezado y Resumen Ejecutivo -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 bg-surface-container-low p-6 shadow-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-secondary inline-block"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">SecOps Monitoring v4.1</span>
+<span class="text-outline-variant font-label-sm text-label-sm">/</span>
+<span class="font-code-num text-code-num text-on-surface-variant">NODE-CLUSTER-US-EAST</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">Dashboard [FINAL]</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
+        Consolidado operativo y fiscal de clústeres autónomos. Alta concurrencia con 98.2% de ejecuciones dentro de SLA y 3 incidentes de aislamiento de memoria en mitigación activa.
+      </p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 px-3 py-2 bg-surface-container-high text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary">update</span>
+<span class="font-code-num text-code-num text-on-surface-variant">Sincronizado: <span class="text-on-surface font-semibold">14:02:19 UTC</span></span>
+</div>
+<button class="px-4 py-2 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider flex items-center gap-2 hover:bg-primary-fixed-dim transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Rebalancear Cargas</span>
+</button>
+</div>
+</div>
+<!-- 2. Cuatro Tarjetas KPI -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- KPI 1: Ingresos Totales (Success - Emerald/Secondary) -->
+<div class="bg-surface-container p-5 flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Facturación de Plataforma</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Ingresos Totales (Mes)</span>
+</div>
+<div class="w-9 h-9 bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+</div>
+<div class="mt-6 flex flex-col gap-2">
+<div class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight font-headline-xl">
+          $48,250 <span class="text-headline-sm font-label-md text-outline">USD</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 bg-secondary-container text-on-secondary-container font-code-num text-code-num font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>+12.4%
+          </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">vs. periodo anterior</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: Pérdida por Descuentos (Warning - Amber/Secondary-fixed) -->
+<div class="bg-surface-container p-5 flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary-fixed"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Erosión de Márgenes</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Descuentos &amp; Cupones</span>
+</div>
+<div class="w-9 h-9 bg-secondary-fixed/10 flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-[20px]">local_offer</span>
+</div>
+</div>
+<div class="mt-6 flex flex-col gap-2">
+<div class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight font-headline-xl">
+          $3,180 <span class="text-headline-sm font-label-md text-outline">USD</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 bg-surface-container-highest text-secondary-fixed font-code-num text-code-num font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span>-4.1%
+          </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">reducción de fuga</span>
+</div>
+</div>
+</div>
+<!-- KPI 3: Agentes Activos (Info - Primary/Indigo) -->
+<div class="bg-surface-container p-5 flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-0 left-0 right-0 h-1 bg-primary"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Topología Concurrente</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Agentes en Clientes</span>
+</div>
+<div class="w-9 h-9 bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</div>
+</div>
+<div class="mt-6 flex flex-col gap-2">
+<div class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight font-headline-xl">
+          142 <span class="text-headline-sm font-label-md text-outline">INSTANCIAS</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 bg-primary-container text-on-primary-container font-code-num text-code-num font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-primary rounded-none inline-block"></span> 97.9% ONLINE
+          </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">de 145 asignadas</span>
+</div>
+</div>
+</div>
+<!-- KPI 4: Agentes Fallando (Danger - Crimson/Tertiary-container) -->
+<div class="bg-surface-container p-5 flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container-high transition-colors">
+<div class="absolute top-0 left-0 right-0 h-1 bg-tertiary-container"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Salud Crítica</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Agentes Fallando</span>
+</div>
+<div class="w-9 h-9 bg-tertiary-container/10 flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+</div>
+<div class="mt-6 flex flex-col gap-2">
+<div class="font-display-lg text-display-lg font-bold text-tertiary-container tracking-tight font-headline-xl">
+          03 <span class="text-headline-sm font-label-md text-outline">NODOS CRÍTICOS</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-1.5 py-0.5 bg-error-container text-on-error-container font-code-num text-code-num font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">error</span> REINICIO REQUERIDO
+          </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Logs de error +18%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Gráfico de Actividad Semanal de Ancho Completo -->
+<div class="bg-surface-container p-6 shadow-sm flex flex-col gap-6">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-3 bg-primary inline-block"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">Métricas de Ejecución Operacional</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight mt-0.5">
+          Actividad Semanal: Cómputo vs. Tasa de Éxito
+        </h2>
+</div>
+<!-- Filtro 7D, 30D, 90D -->
+<div class="flex items-center bg-surface-container-lowest p-1" id="timeframe-selector">
+<button class="px-3 py-1.5 font-label-md text-label-md text-on-primary bg-primary shadow-sm" data-filter="7D">7D</button>
+<button class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-filter="30D">30D</button>
+<button class="px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-filter="90D">90D</button>
+</div>
+</div>
+<!-- Leyenda y Métricas Resumen -->
+<div class="flex flex-wrap items-center justify-between gap-4 py-2 bg-surface-container-low px-4">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary-container"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ejecuciones Totales (<span class="text-on-surface font-semibold font-code-num">1.48M</span>)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-0.5 bg-secondary"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tasa de Éxito Media (<span class="text-secondary font-semibold font-code-num">98.4%</span>)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-0.5 bg-tertiary-container"></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Umbral Mínimo SLA (95%)</span>
+</div>
+</div>
+<div class="font-code-num text-code-num text-on-surface-variant">
+        Latencia P99: <span class="text-on-surface font-bold">142ms</span>
+</div>
+</div>
+<!-- Visualización SVG: Barras de Ejecuciones + Línea de Tasa de Éxito -->
+<div class="relative w-full h-72 bg-surface-container-lowest p-4 overflow-hidden">
+<!-- Grid de fondo monoline -->
+<div class="absolute inset-x-4 inset-y-8 flex flex-col justify-between pointer-events-none opacity-20">
+<div class="w-full h-px bg-outline"></div>
+<div class="w-full h-px bg-outline"></div>
+<div class="w-full h-px bg-outline"></div>
+<div class="w-full h-px bg-outline"></div>
+</div>
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 800 240">
+<defs>
+<lineargradient id="barGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#8083ff" stop-opacity="0.9"></stop>
+<stop offset="100%" stop-color="#2f2ebe" stop-opacity="0.3"></stop>
+</lineargradient>
+</defs>
+<!-- Barras de Ejecuciones Diarias (Lunes a Domingo) -->
+<!-- Lun -->
+<rect class="hover:opacity-80 transition-opacity" fill="url(#barGrad)" height="120" width="34" x="50" y="80"></rect>
+<text class="fill-outline text-[11px] font-code-num uppercase" text-anchor="middle" x="67" y="220">Lun 18</text>
+<!-- Mar -->
+<rect class="hover:opacity-80 transition-opacity" fill="url(#barGrad)" height="145" width="34" x="155" y="55"></rect>
+<text class="fill-outline text-[11px] font-code-num uppercase" text-anchor="middle" x="172" y="220">Mar 19</text>
+<!-- Mie -->
+<rect class="hover:opacity-80 transition-opacity" fill="url(#barGrad)" height="160" width="34" x="260" y="40"></rect>
+<text class="fill-outline text-[11px] font-code-num uppercase" text-anchor="middle" x="277" y="220">Mié 20</text>
+<!-- Jue -->
+<rect class="hover:opacity-80 transition-opacity" fill="url(#barGrad)" height="135" width="34" x="365" y="65"></rect>
+<text class="fill-outline text-[11px] font-code-num uppercase" text-anchor="middle" x="382" y="220">Jue 21</text>
+<!-- Vie -->
+<rect class="hover:opacity-80 transition-opacity" fill="url(#barGrad)" height="175" width="34" x="470" y="25"></rect>
+<text class="fill-outline text-[11px] font-code-num uppercase" text-anchor="middle" x="487" y="220">Vie 22</text>
+<!-- Sab -->
+<rect class="hover:opacity-80 transition-opacity" fill="url(#barGrad)" height="90" width="34" x="575" y="110"></rect>
+<text class="fill-outline text-[11px] font-code-num uppercase" text-anchor="middle" x="592" y="220">Sáb 23</text>
+<!-- Dom -->
+<rect class="hover:opacity-80 transition-opacity" fill="url(#barGrad)" height="75" width="34" x="680" y="125"></rect>
+<text class="fill-outline text-[11px] font-code-num uppercase" text-anchor="middle" x="697" y="220">Dom 24</text>
+<!-- Línea de Umbral Crítico SLA 95% -->
+<line opacity="0.6" stroke="#ff516a" stroke-dasharray="4,4" stroke-width="1.5" x1="30" x2="770" y1="85" y2="85"></line>
+<!-- Línea SVG de Tasa de Éxito (%) -->
+<polyline fill="none" points="67,42 172,38 277,32 382,50 487,28 592,44 697,40" stroke="#4edea3" stroke-width="3"></polyline>
+<!-- Nodos de Datos sobre la Línea -->
+<circle class="fill-surface" cx="67" cy="42" r="4" stroke="#4edea3" stroke-width="2"></circle>
+<circle class="fill-surface" cx="172" cy="38" r="4" stroke="#4edea3" stroke-width="2"></circle>
+<circle class="fill-surface" cx="277" cy="32" r="4" stroke="#4edea3" stroke-width="2"></circle>
+<circle class="fill-surface" cx="382" cy="50" r="4" stroke="#4edea3" stroke-width="2"></circle>
+<circle class="fill-surface" cx="487" cy="28" r="4" stroke="#4edea3" stroke-width="2"></circle>
+<circle class="fill-surface" cx="592" cy="44" r="4" stroke="#4edea3" stroke-width="2"></circle>
+<circle class="fill-surface" cx="697" cy="40" r="4" stroke="#4edea3" stroke-width="2"></circle>
+<!-- Tooltip estático de demostración sobre pico del Viernes -->
+<rect class="fill-surface-container-high" height="20" width="94" x="440" y="2"></rect>
+<text class="fill-secondary-fixed text-[10px] font-code-num font-bold" text-anchor="middle" x="487" y="15">99.1% ÉXITO</text>
+</svg>
+</div>
+</div>
+<!-- 4. Sección Complementaria: Actividad Reciente y Distribución de Cargas -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Bloque Izquierdo: Flujo de Actividad Reciente (8 Cols) -->
+<div class="lg:col-span-8 bg-surface-container p-6 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-3 bg-secondary inline-block"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Flujo de Despliegue y Actividad de Agentes</h3>
+</div>
+<span class="font-code-num text-code-num text-on-surface-variant">STREAM ACTIVO</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-lowest text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-3">Agente / ID</th>
+<th class="py-2.5 px-3">Cliente / Tenant</th>
+<th class="py-2.5 px-3">Métrica Latencia</th>
+<th class="py-2.5 px-3">Estado</th>
+<th class="py-2.5 px-3 text-right">Tiempo</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant/40 font-body-sm text-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 bg-surface-container-highest flex items-center justify-center text-primary font-headline-sm">
+<span class="material-symbols-outlined text-[16px]">support_agent</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Nexus-FinQuery</span>
+<span class="font-code-num text-code-num text-outline">ag_0921_finx</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold">Santander Global</span>
+<span class="font-label-sm text-label-sm text-outline">Prod-Enterprise</span>
+</div>
+</td>
+<td class="py-3 px-3 font-code-num text-code-num text-secondary">84ms / 21k tpm</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-secondary-container/20 text-secondary font-label-sm text-label-sm uppercase">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span> Activo
+                </span>
+</td>
+<td class="py-3 px-3 text-right font-code-num text-code-num text-on-surface-variant">Hace 2m</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 bg-surface-container-highest flex items-center justify-center text-primary font-headline-sm">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">DocuParser-LLM</span>
+<span class="font-code-num text-code-num text-outline">ag_3310_ocr</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold">Iberia Logistics</span>
+<span class="font-label-sm text-label-sm text-outline">Batch-Engine</span>
+</div>
+</td>
+<td class="py-3 px-3 font-code-num text-code-num text-secondary">310ms / 4k tpm</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-secondary-container/20 text-secondary font-label-sm text-label-sm uppercase">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span> Activo
+                </span>
+</td>
+<td class="py-3 px-3 text-right font-code-num text-code-num text-on-surface-variant">Hace 7m</td>
+</tr>
+<!-- Row 3: Failing -->
+<tr class="bg-error-container/10 hover:bg-error-container/20 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 bg-error-container flex items-center justify-center text-on-error-container font-headline-sm">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-tertiary-container">RiskScorer-Auto</span>
+<span class="font-code-num text-code-num text-outline">ag_1184_err</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold">BBVA OpenRisk</span>
+<span class="font-label-sm text-label-sm text-outline">Cluster-EU-Fail</span>
+</div>
+</td>
+<td class="py-3 px-3 font-code-num text-code-num text-tertiary-container">TIMEOUT (4200ms)</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-error-container text-on-error-container font-label-sm text-label-sm uppercase font-bold">
+<span class="w-1.5 h-1.5 bg-tertiary-container inline-block"></span> Fallando
+                </span>
+</td>
+<td class="py-3 px-3 text-right font-code-num text-code-num text-tertiary-container">Hace 14m</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-high/60 transition-colors">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 bg-surface-container-highest flex items-center justify-center text-primary font-headline-sm">
+<span class="material-symbols-outlined text-[16px]">code_blocks</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">AutoRefactor-Go</span>
+<span class="font-code-num text-code-num text-outline">ag_8829_dev</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold">Telefónica Digital</span>
+<span class="font-label-sm text-label-sm text-outline">Dev-Pipeline</span>
+</div>
+</td>
+<td class="py-3 px-3 font-code-num text-code-num text-secondary">192ms / 9k tpm</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 bg-secondary-container/20 text-secondary font-label-sm text-label-sm uppercase">
+<span class="w-1.5 h-1.5 bg-secondary inline-block"></span> Activo
+                </span>
+</td>
+<td class="py-3 px-3 text-right font-code-num text-code-num text-on-surface-variant">Hace 22m</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Bloque Derecho: Distribución de Cargas de Cómputo (4 Cols) -->
+<div class="lg:col-span-4 bg-surface-container p-6 shadow-sm flex flex-col justify-between gap-6">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-3 bg-primary-container inline-block"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Distribución de Carga GPU/LLM</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Capacidad reservada en pools dedicados.</p>
+</div>
+<!-- Barra segmentada de Cargas -->
+<div class="flex flex-col gap-2">
+<div class="h-3 w-full bg-surface-container-lowest flex overflow-hidden">
+<div class="h-full bg-primary" style="width: 52%;" title="Inferencia Conversacional 52%"></div>
+<div class="h-full bg-secondary" style="width: 28%;" title="Extracción Documental 28%"></div>
+<div class="h-full bg-surface-tint" style="width: 14%;" title="Code-Gen 14%"></div>
+<div class="h-full bg-tertiary-container" style="width: 6%;" title="Pool en Alerta 6%"></div>
+</div>
+<div class="flex justify-between font-code-num text-code-num text-outline">
+<span>USO ACTUAL: 88.4%</span>
+<span>DISPONIBLE: 11.6%</span>
+</div>
+</div>
+<!-- Desglose por Modelo / Cluster -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 bg-primary"></span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface uppercase">Inferencia Conversacional</span>
+<span class="font-body-sm text-body-sm text-outline">Claude-3.5-Sonnet / OpenAI o1</span>
+</div>
+</div>
+<span class="font-code-num text-code-num font-bold text-on-surface">52%</span>
+</div>
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 bg-secondary"></span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface uppercase">Extracción &amp; OCR</span>
+<span class="font-body-sm text-body-sm text-outline">Llama-3.2-Vision Cluster</span>
+</div>
+</div>
+<span class="font-code-num text-code-num font-bold text-on-surface">28%</span>
+</div>
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 bg-surface-tint"></span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface uppercase">Síntesis de Código</span>
+<span class="font-body-sm text-body-sm text-outline">DeepSeek-Coder V2</span>
+</div>
+</div>
+<span class="font-code-num text-code-num font-bold text-on-surface">14%</span>
+</div>
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low border-l-2 border-tertiary-container">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 bg-tertiary-container"></span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-tertiary-container uppercase font-bold">Reserva de Emergencia</span>
+<span class="font-body-sm text-body-sm text-outline">3 Nodos en Fallback</span>
+</div>
+</div>
+<span class="font-code-num text-code-num font-bold text-tertiary-container">6%</span>
+</div>
+</div>
+<!-- Action Footer -->
+<a class="w-full py-2.5 bg-surface-container-high hover:bg-surface-variant transition-colors flex items-center justify-center gap-2 font-label-md text-label-md uppercase tracking-wider text-on-surface text-center" href="#">
+<span>Inspeccionar Clúster K8s</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const timeframeButtons = document.querySelectorAll('#timeframe-selector button');
+    timeframeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        timeframeButtons.forEach(b => {
+          b.className = 'px-3 py-1.5 font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors';
+        });
+        btn.className = 'px-3 py-1.5 font-label-md text-label-md text-on-primary bg-primary shadow-sm';
+      });
+    });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const htmlEl = document.documentElement;
+
+    if (themeToggle && themeIcon) {
+      themeToggle.addEventListener('click', () => {
+        const isDark = htmlEl.classList.toggle('dark');
+        themeIcon.textContent = isDark ? 'dark_mode' : 'light_mode';
+      });
+    }
+  })();
+</script></main></div></body></html>

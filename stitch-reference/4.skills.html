@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+/* Transiciones fluidas de tema */
+body, aside, header, main, div, button, input, select {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#dae2fd","on-secondary":"#003824","surface-tint":"#c0c1ff","surface-container-high":"#222a3d","tertiary-container":"#ff516a","on-surface":"#dae2fd","secondary-fixed":"#6ffbbe","surface":"#0b1326","on-primary-fixed":"#07006c","error":"#ffb4ab","error-container":"#93000a","surface-variant":"#2d3449","on-primary":"#1000a9","tertiary-fixed-dim":"#ffb2b7","secondary-fixed-dim":"#4edea3","surface-container-lowest":"#060e20","on-primary-fixed-variant":"#2f2ebe","surface-container":"#171f33","inverse-primary":"#494bd6","surface-dim":"#0b1326","tertiary":"#ffb2b7","on-secondary-fixed-variant":"#005236","on-secondary-fixed":"#002113","secondary-container":"#00a572","on-tertiary-fixed-variant":"#92002a","outline":"#908fa0","on-secondary-container":"#00311f","secondary":"#4edea3","primary-fixed":"#e1e0ff","primary-fixed-dim":"#c0c1ff","on-surface-variant":"#c7c4d7","primary-container":"#8083ff","on-tertiary-container":"#5b0017","on-error":"#690005","on-tertiary":"#67001b","inverse-on-surface":"#283044","outline-variant":"#464554","on-primary-container":"#0d0096","on-tertiary-fixed":"#40000d","background":"#0b1326","primary":"#c0c1ff","tertiary-fixed":"#ffdadb","surface-bright":"#31394d","inverse-surface":"#dae2fd","on-error-container":"#ffdad6","surface-container-highest":"#2d3449","surface-container-low":"#131b2e"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"gutter":"1rem","space-md":"0.75rem","space-2xs":"0.125rem","gutter-mobile":"0.75rem","space-lg":"1.25rem","space-xs":"0.25rem","margin":"2rem","margin-mobile":"1rem","space-2xl":"2.5rem","space-sm":"0.5rem","space-xl":"1.75rem"},fontFamily:{"code-num":["Geist"],"label-md":["Geist"],"body-sm":["Geist"],"headline-sm":["Space Grotesk"],"headline-md":["Space Grotesk"],"body-md":["Geist"],"display-lg":["Space Grotesk"],"headline-xl-mobile":["Space Grotesk"],"label-sm":["Geist"],"headline-xl":["Space Grotesk"],"body-lg":["Geist"],"headline-lg":["Space Grotesk"],"display-lg-mobile":["Space Grotesk"]},fontSize:{"code-num":["13px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.06em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",letterSpacing:"0em",fontWeight:"400"}],"headline-sm":["15px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"600"}],"headline-md":["18px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"400"}],"display-lg":["48px",{lineHeight:"52px",letterSpacing:"-0.03em",fontWeight:"700"}],"headline-xl-mobile":["24px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"600"}],"headline-xl":["32px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg-mobile":["32px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-slate-50 dark:bg-background font-body-md text-slate-900 dark:text-on-surface antialiased transition-colors"><aside class="fixed left-0 top-0 h-full w-64 bg-white dark:bg-surface-container-low border-r border-slate-200 dark:border-transparent z-50 flex flex-col justify-between py-6"><div class="flex flex-col gap-6"><div class="px-6 flex items-center gap-3"><div class="w-8 h-8 bg-indigo-600 dark:bg-primary-container text-white dark:text-on-primary-container flex items-center justify-center font-headline-md font-bold"><span class="material-symbols-outlined text-[20px]">smart_toy</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-slate-900 dark:text-on-surface">Agent-Hub</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-emerald-600 dark:text-secondary">Internal Core</span></div></div><div class="px-4"><div class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline px-3 mb-2 tracking-widest">Operaciones</div><nav class="flex flex-col gap-1" data-active-classes="bg-slate-100 dark:bg-surface-container-highest text-indigo-600 dark:text-primary font-bold"><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="gestion-de-usuarios" href="#"><span class="material-symbols-outlined text-[20px]">manage_accounts</span><span>Gestión de usuarios</span></a><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="gestion-de-agentes" href="#"><span class="material-symbols-outlined text-[20px]">memory</span><span>Gestión de agentes</span></a><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="skills" href="#"><span class="material-symbols-outlined text-[20px]">psychology</span><span>Skills</span></a><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="contrataciones-de-agentes" href="#"><span class="material-symbols-outlined text-[20px]">handshake</span><span>Contrataciones de agentes</span></a><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="log-de-errores" href="#"><span class="material-symbols-outlined text-[20px]">terminal</span><span>Log de errores</span></a></nav></div></div><div class="px-4"><div class="bg-slate-100 dark:bg-surface-container p-3 flex items-center justify-between border border-slate-200 dark:border-transparent"><div class="flex items-center gap-2"><div class="w-2 h-2 bg-emerald-500 dark:bg-secondary"></div><span class="font-code-num text-code-num text-slate-600 dark:text-on-surface-variant">v4.1.0-prod</span></div><span class="font-label-sm text-label-sm uppercase px-1.5 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-surface-container-highest dark:text-secondary-fixed font-semibold">ONLINE</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-white/80 dark:bg-surface/80 backdrop-blur-xl z-40 px-8 flex items-center justify-between border-b border-slate-200 dark:border-transparent shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-3 w-96"><div class="w-full flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-surface-container-low text-slate-600 dark:text-on-surface-variant focus-within:text-slate-900 dark:focus-within:text-on-surface border border-slate-200 dark:border-transparent"><span class="material-symbols-outlined text-[18px]">search</span><input class="w-full bg-transparent border-0 outline-none font-body-sm text-body-sm text-slate-900 dark:text-on-surface placeholder:text-slate-400 dark:placeholder:text-outline" placeholder="Buscar telemetría, agentes o identidades..." type="text"/></div></div><div class="flex items-center gap-4"><button class="w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-surface-container-low hover:bg-slate-200 dark:hover:bg-surface-container-high text-slate-700 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface border border-slate-200 dark:border-transparent transition-colors" id="theme-toggle" title="Cambiar tema (Modo claro / Modo oscuro)" type="button"><span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span></button><button class="relative w-9 h-9 flex items-center justify-center bg-slate-100 dark:bg-surface-container-low hover:bg-slate-200 dark:hover:bg-surface-container-high text-slate-700 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface border border-slate-200 dark:border-transparent transition-colors" title="Notificaciones de sistema" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 bg-tertiary-container"></span></button><div class="h-6 w-px bg-slate-200 dark:bg-surface-variant mx-1"></div><div class="flex items-center gap-3 pl-1"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-slate-900 dark:text-on-surface uppercase">Admin root</span><span class="font-label-sm text-label-sm text-slate-500 dark:text-outline">SecOps Admin</span></div><div class="w-8 h-8 rounded-full bg-indigo-600 dark:bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-white dark:text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 px-8 min-h-screen bg-slate-50 dark:bg-background"><div class="flex flex-col w-full pb-16">
+<!-- Interactive Script to highlight the current navigation item in the shell -->
+<script>
+    (function highlightNav() {
+      const activeClasses = ['bg-slate-100', 'dark:bg-surface-container-highest', 'text-indigo-600', 'dark:text-primary', 'font-bold'];
+      const defaultClasses = ['text-slate-600', 'dark:text-on-surface-variant'];
+      document.querySelectorAll('aside nav a').forEach(link => {
+        if (link.getAttribute('data-path') === 'skills') {
+          link.classList.remove(...defaultClasses);
+          link.classList.add(...activeClasses);
+        } else {
+          link.classList.remove(...activeClasses);
+        }
+      });
+    })();
+  </script>
+<!-- Section Top: Breadcrumb & Title Area -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 mt-6">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-slate-500 dark:text-outline font-label-sm text-label-sm uppercase tracking-widest">
+<span>INFRAESTRUCTURA</span>
+<span class="text-slate-300 dark:text-surface-variant">/</span>
+<span class="text-indigo-600 dark:text-primary font-semibold">CAPACIDADES MODULARES</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-xl text-headline-xl text-slate-900 dark:text-on-surface tracking-tight">Catálogo de Skills [FINAL]</h1>
+<span class="bg-emerald-100 text-emerald-800 dark:bg-surface-container-high dark:text-secondary px-2 py-0.5 font-code-num text-code-num font-semibold">24 DISPONIBLES</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center bg-white dark:bg-surface-container-low px-3 py-2 text-slate-700 dark:text-on-surface-variant border border-slate-200 dark:border-transparent">
+<span class="material-symbols-outlined text-[18px] mr-2 text-slate-400 dark:text-outline">tune</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-slate-500 dark:text-outline mr-2">DESPLIEGUE:</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-semibold">HOT-PLUG READY</span>
+</div>
+<button class="flex items-center gap-2 bg-indigo-600 dark:bg-primary text-white dark:text-on-primary px-4 py-2 font-label-md text-label-md uppercase tracking-wider hover:bg-indigo-700 dark:hover:bg-surface-tint active:bg-indigo-800 dark:active:bg-inverse-primary transition-colors shadow-sm" onclick="openSkillModal('NEW')">
+<span class="material-symbols-outlined text-[18px]">add_box</span>
+<span>Crear Nueva Skill</span>
+</button>
+</div>
+</div>
+<!-- Technical Definition Hero Banner -->
+<div class="bg-white dark:bg-surface-container-low p-6 mb-8 relative overflow-hidden border border-slate-200 dark:border-transparent shadow-sm">
+<div class="absolute -right-12 -top-12 w-64 h-64 bg-indigo-500/5 dark:bg-primary/5 rounded-full pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+<div class="flex items-start gap-4 max-w-4xl">
+<div class="p-3 bg-indigo-50 dark:bg-surface-container-high text-indigo-600 dark:text-primary flex items-center justify-center border border-indigo-100 dark:border-transparent">
+<span class="material-symbols-outlined text-[28px]">psychology</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase text-emerald-600 dark:text-secondary tracking-widest font-semibold">ARQUITECTURA DEL SISTEMA</span>
+<span class="w-1.5 h-1.5 bg-emerald-500 dark:bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-slate-500 dark:text-outline uppercase">MODULAR KERNEL SPEC v2.4</span>
+</div>
+<p class="font-body-lg text-body-lg text-slate-800 dark:text-on-surface">
+            Una <strong class="text-indigo-600 dark:text-primary font-semibold">skill</strong> es un módulo de capacidad preconfigurado (herramientas, APIs, conectores y lógica de inferencia) que se puede adjuntar dinámicamente a los agentes para ejecutar tareas especializadas.
+          </p>
+<div class="flex flex-wrap items-center gap-x-6 gap-y-1 pt-1 text-slate-600 dark:text-on-surface-variant font-code-num text-code-num">
+<span class="flex items-center gap-1.5"><span class="w-1 h-1 bg-indigo-500 dark:bg-primary"></span>Invocación zero-downtime</span>
+<span class="flex items-center gap-1.5"><span class="w-1 h-1 bg-indigo-500 dark:bg-primary"></span>Aislamiento gRPC sandboxed</span>
+<span class="flex items-center gap-1.5"><span class="w-1 h-1 bg-indigo-500 dark:bg-primary"></span>Validación de esquemas Zod/JSON-RPC</span>
+</div>
+</div>
+</div>
+<!-- Quick Metrics Strip -->
+<div class="flex lg:flex-col justify-between sm:justify-start gap-4 lg:gap-2 shrink-0 bg-slate-50 dark:bg-surface-container p-3.5 border border-slate-200 dark:border-transparent">
+<div>
+<div class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">INVOCACIONES / 24H</div>
+<div class="font-headline-md text-headline-md text-slate-900 dark:text-on-surface flex items-baseline gap-2">
+<span>2.84M</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-semibold">+18.4%</span>
+</div>
+</div>
+<div class="h-px bg-slate-200 dark:bg-surface-variant hidden lg:block"></div>
+<div>
+<div class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">LATENCIA P99 GLOBAL</div>
+<div class="font-headline-md text-headline-md text-slate-900 dark:text-on-surface flex items-baseline gap-2">
+<span>42ms</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-semibold">ESTABLE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter & Filter Matrix Controls -->
+<div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-6">
+<div class="flex flex-wrap items-center gap-1 bg-white dark:bg-surface-container-low p-1 border border-slate-200 dark:border-transparent">
+<button class="px-3.5 py-1.5 font-label-md text-label-md uppercase bg-indigo-600 dark:bg-primary text-white dark:text-on-primary font-semibold">
+        Todas (24)
+      </button>
+<button class="px-3.5 py-1.5 font-label-md text-label-md uppercase text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container hover:text-slate-900 dark:hover:text-on-surface transition-colors">
+        Análisis Financiero (6)
+      </button>
+<button class="px-3.5 py-1.5 font-label-md text-label-md uppercase text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container hover:text-slate-900 dark:hover:text-on-surface transition-colors">
+        Visión Artificial (4)
+      </button>
+<button class="px-3.5 py-1.5 font-label-md text-label-md uppercase text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container hover:text-slate-900 dark:hover:text-on-surface transition-colors">
+        DevOps &amp; Código (9)
+      </button>
+<button class="px-3.5 py-1.5 font-label-md text-label-md uppercase text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container hover:text-slate-900 dark:hover:text-on-surface transition-colors">
+        Seguridad (5)
+      </button>
+</div>
+<!-- Quick stats and search inside category -->
+<div class="flex items-center gap-3">
+<div class="flex items-center bg-white dark:bg-surface-container-low px-3 py-1.5 gap-2 text-slate-600 dark:text-on-surface-variant border border-slate-200 dark:border-transparent">
+<span class="material-symbols-outlined text-[16px] text-slate-400 dark:text-outline">filter_list</span>
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">ORDEN:</span>
+<select class="bg-transparent text-slate-900 dark:text-on-surface font-body-sm text-body-sm outline-none cursor-pointer">
+<option class="bg-white dark:bg-surface-container text-slate-900 dark:text-on-surface" value="agents">Más asignadas</option>
+<option class="bg-white dark:bg-surface-container text-slate-900 dark:text-on-surface" value="recent">Recientes</option>
+<option class="bg-white dark:bg-surface-container text-slate-900 dark:text-on-surface" value="latency">Menor latencia</option>
+</select>
+</div>
+<div class="text-slate-500 dark:text-outline font-label-sm text-label-sm uppercase tracking-wider hidden sm:block">
+        MODO DE AISLAMIENTO: <span class="text-slate-900 dark:text-on-surface font-semibold">WASM / FIRECRACKER</span>
+</div>
+</div>
+</div>
+<!-- Skills Grid (6 cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+<!-- Card 1: Financial Ledger OCR -->
+<div class="bg-white dark:bg-surface-container p-5 flex flex-col justify-between hover:bg-slate-50 dark:hover:bg-surface-container-high border border-slate-200 dark:border-transparent transition-colors group relative shadow-sm">
+<div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 bg-emerald-500 dark:bg-secondary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-emerald-600 dark:text-secondary font-semibold">VISIÓN ARTIFICIAL &amp; FINANZAS</span>
+</div>
+<!-- Dropdown Button & Menu -->
+<div class="relative">
+<button class="w-7 h-7 flex items-center justify-center bg-slate-100 dark:bg-surface-container-low text-slate-600 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface hover:bg-slate-200 dark:hover:bg-surface-variant transition-colors" onclick="toggleActionMenu(event, 'menu-1')" title="Acciones">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-44 bg-white dark:bg-surface-container-highest shadow-xl border border-slate-200 dark:border-transparent z-30 py-1 font-body-sm text-body-sm" id="menu-1">
+<button class="w-full text-left px-3 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container hover:text-indigo-600 dark:hover:text-primary flex items-center gap-2" onclick="openSkillModal('OCR')">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Ver detalle</span>
+</button>
+<button class="w-full text-left px-3 py-2 text-rose-600 dark:text-tertiary-fixed-dim hover:bg-rose-50 dark:hover:bg-tertiary-container hover:text-rose-700 dark:hover:text-on-tertiary flex items-center gap-2" onclick="deleteSkill('Financial Ledger OCR')">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Eliminar</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between mb-1.5">
+<h2 class="font-headline-md text-headline-md text-slate-900 dark:text-on-surface tracking-tight group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors">Financial Ledger OCR</h2>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">v3.1.2</span>
+</div>
+<p class="font-body-md text-body-md text-slate-600 dark:text-on-surface-variant mb-5 line-clamp-2">
+          Extracción y conciliación contable de balances y facturas complejas mediante inferencia visual multiespectral y tabulación estructurada.
+        </p>
+</div>
+<div>
+<!-- Sparkline and Runtime metrics -->
+<div class="bg-slate-50 dark:bg-surface-container-low p-3 mb-4 flex items-center justify-between border border-slate-100 dark:border-transparent">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">HABILITADA EN</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-emerald-600 dark:text-secondary">smart_toy</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface">8 agentes</span>
+</div>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">LATENCIA AVG</span>
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface mt-0.5">184ms</span>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">CONFIABILIDAD</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-semibold mt-0.5">99.82%</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 font-code-num text-code-num text-slate-500 dark:text-outline">
+<span class="material-symbols-outlined text-[14px]">link</span>
+<span>REST / gRPC / S3</span>
+</div>
+<button class="font-label-md text-label-md uppercase text-indigo-600 dark:text-primary hover:text-indigo-800 dark:hover:text-surface-tint font-semibold flex items-center gap-1" onclick="openSkillModal('OCR')">
+<span>Configuración</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: SQL Optimization & Indexing -->
+<div class="bg-white dark:bg-surface-container p-5 flex flex-col justify-between hover:bg-slate-50 dark:hover:bg-surface-container-high border border-slate-200 dark:border-transparent transition-colors group relative shadow-sm">
+<div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 bg-emerald-500 dark:bg-secondary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-emerald-600 dark:text-secondary font-semibold">DEVOPS &amp; CÓDIGO</span>
+</div>
+<div class="relative">
+<button class="w-7 h-7 flex items-center justify-center bg-slate-100 dark:bg-surface-container-low text-slate-600 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface hover:bg-slate-200 dark:hover:bg-surface-variant transition-colors" onclick="toggleActionMenu(event, 'menu-2')" title="Acciones">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-44 bg-white dark:bg-surface-container-highest shadow-xl border border-slate-200 dark:border-transparent z-30 py-1 font-body-sm text-body-sm" id="menu-2">
+<button class="w-full text-left px-3 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container hover:text-indigo-600 dark:hover:text-primary flex items-center gap-2" onclick="openSkillModal('SQL')">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Ver detalle</span>
+</button>
+<button class="w-full text-left px-3 py-2 text-rose-600 dark:text-tertiary-fixed-dim hover:bg-rose-50 dark:hover:bg-tertiary-container hover:text-rose-700 dark:hover:text-on-tertiary flex items-center gap-2" onclick="deleteSkill('SQL Optimization &amp; Indexing')">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Eliminar</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between mb-1.5">
+<h2 class="font-headline-md text-headline-md text-slate-900 dark:text-on-surface tracking-tight group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors">SQL Optimization &amp; Indexing</h2>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">v2.8.0</span>
+</div>
+<p class="font-body-md text-body-md text-slate-600 dark:text-on-surface-variant mb-5 line-clamp-2">
+          Análisis de planes de ejecución y reescritura de queries PostgreSQL/Snowflake con síntesis heurística de índices btree/brin.
+        </p>
+</div>
+<div>
+<div class="bg-slate-50 dark:bg-surface-container-low p-3 mb-4 flex items-center justify-between border border-slate-100 dark:border-transparent">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">HABILITADA EN</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-emerald-600 dark:text-secondary">smart_toy</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface">14 agentes</span>
+</div>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">LATENCIA AVG</span>
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface mt-0.5">38ms</span>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">CONFIABILIDAD</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-semibold mt-0.5">99.98%</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 font-code-num text-code-num text-slate-500 dark:text-outline">
+<span class="material-symbols-outlined text-[14px]">database</span>
+<span>PGWire / Snowflake / Trino</span>
+</div>
+<button class="font-label-md text-label-md uppercase text-indigo-600 dark:text-primary hover:text-indigo-800 dark:hover:text-surface-tint font-semibold flex items-center gap-1" onclick="openSkillModal('SQL')">
+<span>Configuración</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Real-time Fraud Scorer -->
+<div class="bg-white dark:bg-surface-container p-5 flex flex-col justify-between hover:bg-slate-50 dark:hover:bg-surface-container-high border border-slate-200 dark:border-transparent transition-colors group relative shadow-sm">
+<div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 bg-emerald-500 dark:bg-secondary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-emerald-600 dark:text-secondary font-semibold">SEGURIDAD &amp; FINANZAS</span>
+</div>
+<div class="relative">
+<button class="w-7 h-7 flex items-center justify-center bg-slate-100 dark:bg-surface-container-low text-slate-600 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface hover:bg-slate-200 dark:hover:bg-surface-variant transition-colors" onclick="toggleActionMenu(event, 'menu-3')" title="Acciones">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-44 bg-white dark:bg-surface-container-highest shadow-xl border border-slate-200 dark:border-transparent z-30 py-1 font-body-sm text-body-sm" id="menu-3">
+<button class="w-full text-left px-3 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container hover:text-indigo-600 dark:hover:text-primary flex items-center gap-2" onclick="openSkillModal('FRAUD')">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Ver detalle</span>
+</button>
+<button class="w-full text-left px-3 py-2 text-rose-600 dark:text-tertiary-fixed-dim hover:bg-rose-50 dark:hover:bg-tertiary-container hover:text-rose-700 dark:hover:text-on-tertiary flex items-center gap-2" onclick="deleteSkill('Real-time Fraud Scorer')">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Eliminar</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between mb-1.5">
+<h2 class="font-headline-md text-headline-md text-slate-900 dark:text-on-surface tracking-tight group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors">Real-time Fraud Scorer</h2>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">v1.9.4</span>
+</div>
+<p class="font-body-md text-body-md text-slate-600 dark:text-on-surface-variant mb-5 line-clamp-2">
+          Detección estocástica de anomalías transaccionales en streaming Kafka con evaluación sub-10ms sobre patrones de grafos.
+        </p>
+</div>
+<div>
+<div class="bg-slate-50 dark:bg-surface-container-low p-3 mb-4 flex items-center justify-between border border-slate-100 dark:border-transparent">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">HABILITADA EN</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-emerald-600 dark:text-secondary">smart_toy</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface">5 agentes</span>
+</div>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">LATENCIA AVG</span>
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface mt-0.5">9ms</span>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">CONFIABILIDAD</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-semibold mt-0.5">99.99%</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 font-code-num text-code-num text-slate-500 dark:text-outline">
+<span class="material-symbols-outlined text-[14px]">stream</span>
+<span>Kafka / Flink / Redis</span>
+</div>
+<button class="font-label-md text-label-md uppercase text-indigo-600 dark:text-primary hover:text-indigo-800 dark:hover:text-surface-tint font-semibold flex items-center gap-1" onclick="openSkillModal('FRAUD')">
+<span>Configuración</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4: AST Code Refactor -->
+<div class="bg-white dark:bg-surface-container p-5 flex flex-col justify-between hover:bg-slate-50 dark:hover:bg-surface-container-high border border-slate-200 dark:border-transparent transition-colors group relative shadow-sm">
+<div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 bg-emerald-500 dark:bg-secondary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-emerald-600 dark:text-secondary font-semibold">DEVOPS &amp; CÓDIGO</span>
+</div>
+<div class="relative">
+<button class="w-7 h-7 flex items-center justify-center bg-slate-100 dark:bg-surface-container-low text-slate-600 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface hover:bg-slate-200 dark:hover:bg-surface-variant transition-colors" onclick="toggleActionMenu(event, 'menu-4')" title="Acciones">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-44 bg-white dark:bg-surface-container-highest shadow-xl border border-slate-200 dark:border-transparent z-30 py-1 font-body-sm text-body-sm" id="menu-4">
+<button class="w-full text-left px-3 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container hover:text-indigo-600 dark:hover:text-primary flex items-center gap-2" onclick="openSkillModal('AST')">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Ver detalle</span>
+</button>
+<button class="w-full text-left px-3 py-2 text-rose-600 dark:text-tertiary-fixed-dim hover:bg-rose-50 dark:hover:bg-tertiary-container hover:text-rose-700 dark:hover:text-on-tertiary flex items-center gap-2" onclick="deleteSkill('AST Code Refactor')">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Eliminar</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between mb-1.5">
+<h2 class="font-headline-md text-headline-md text-slate-900 dark:text-on-surface tracking-tight group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors">AST Code Refactor</h2>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">v4.0.1</span>
+</div>
+<p class="font-body-md text-body-md text-slate-600 dark:text-on-surface-variant mb-5 line-clamp-2">
+          Transformación de código legacy y análisis estático AST para TypeScript y Go preservando invariantes formales de tipado.
+        </p>
+</div>
+<div>
+<div class="bg-slate-50 dark:bg-surface-container-low p-3 mb-4 flex items-center justify-between border border-slate-100 dark:border-transparent">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">HABILITADA EN</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-emerald-600 dark:text-secondary">smart_toy</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface">9 agentes</span>
+</div>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">LATENCIA AVG</span>
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface mt-0.5">620ms</span>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">CONFIABILIDAD</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-semibold mt-0.5">99.70%</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 font-code-num text-code-num text-slate-500 dark:text-outline">
+<span class="material-symbols-outlined text-[14px]">code</span>
+<span>Tree-sitter / Babel / Go-AST</span>
+</div>
+<button class="font-label-md text-label-md uppercase text-indigo-600 dark:text-primary hover:text-indigo-800 dark:hover:text-surface-tint font-semibold flex items-center gap-1" onclick="openSkillModal('AST')">
+<span>Configuración</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 5: Autonomous PenTester Sandbox -->
+<div class="bg-white dark:bg-surface-container p-5 flex flex-col justify-between hover:bg-slate-50 dark:hover:bg-surface-container-high border border-slate-200 dark:border-transparent transition-colors group relative shadow-sm">
+<div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 bg-emerald-500 dark:bg-secondary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-emerald-600 dark:text-secondary font-semibold">SEGURIDAD DEFENSIVA</span>
+</div>
+<div class="relative">
+<button class="w-7 h-7 flex items-center justify-center bg-slate-100 dark:bg-surface-container-low text-slate-600 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface hover:bg-slate-200 dark:hover:bg-surface-variant transition-colors" onclick="toggleActionMenu(event, 'menu-5')" title="Acciones">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-44 bg-white dark:bg-surface-container-highest shadow-xl border border-slate-200 dark:border-transparent z-30 py-1 font-body-sm text-body-sm" id="menu-5">
+<button class="w-full text-left px-3 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container hover:text-indigo-600 dark:hover:text-primary flex items-center gap-2" onclick="openSkillModal('SECURITY')">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Ver detalle</span>
+</button>
+<button class="w-full text-left px-3 py-2 text-rose-600 dark:text-tertiary-fixed-dim hover:bg-rose-50 dark:hover:bg-tertiary-container hover:text-rose-700 dark:hover:text-on-tertiary flex items-center gap-2" onclick="deleteSkill('Autonomous PenTester Sandbox')">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Eliminar</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between mb-1.5">
+<h2 class="font-headline-md text-headline-md text-slate-900 dark:text-on-surface tracking-tight group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors">Autonomous PenTester Sandbox</h2>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">v1.2.0</span>
+</div>
+<p class="font-body-md text-body-md text-slate-600 dark:text-on-surface-variant mb-5 line-clamp-2">
+          Simulación de vectores de ataque OAuth2, CWE-79 e inyección de prompts en microservicios efímeros aislados.
+        </p>
+</div>
+<div>
+<div class="bg-slate-50 dark:bg-surface-container-low p-3 mb-4 flex items-center justify-between border border-slate-100 dark:border-transparent">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">HABILITADA EN</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-emerald-600 dark:text-secondary">smart_toy</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface">3 agentes</span>
+</div>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">LATENCIA AVG</span>
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface mt-0.5">1,240ms</span>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">CONFIABILIDAD</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-semibold mt-0.5">99.10%</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 font-code-num text-code-num text-slate-500 dark:text-outline">
+<span class="material-symbols-outlined text-[14px]">security</span>
+<span>K8s Sandbox / Falco</span>
+</div>
+<button class="font-label-md text-label-md uppercase text-indigo-600 dark:text-primary hover:text-indigo-800 dark:hover:text-surface-tint font-semibold flex items-center gap-1" onclick="openSkillModal('SECURITY')">
+<span>Configuración</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6: Multi-Tenant Vector Synthesizer -->
+<div class="bg-white dark:bg-surface-container p-5 flex flex-col justify-between hover:bg-slate-50 dark:hover:bg-surface-container-high border border-slate-200 dark:border-transparent transition-colors group relative shadow-sm">
+<div>
+<div class="flex items-start justify-between gap-3 mb-3">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 bg-emerald-500 dark:bg-secondary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-emerald-600 dark:text-secondary font-semibold">ANÁLISIS FINANCIERO &amp; RAG</span>
+</div>
+<div class="relative">
+<button class="w-7 h-7 flex items-center justify-center bg-slate-100 dark:bg-surface-container-low text-slate-600 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface hover:bg-slate-200 dark:hover:bg-surface-variant transition-colors" onclick="toggleActionMenu(event, 'menu-6')" title="Acciones">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-1 w-44 bg-white dark:bg-surface-container-highest shadow-xl border border-slate-200 dark:border-transparent z-30 py-1 font-body-sm text-body-sm" id="menu-6">
+<button class="w-full text-left px-3 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container hover:text-indigo-600 dark:hover:text-primary flex items-center gap-2" onclick="openSkillModal('VECTOR')">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Ver detalle</span>
+</button>
+<button class="w-full text-left px-3 py-2 text-rose-600 dark:text-tertiary-fixed-dim hover:bg-rose-50 dark:hover:bg-tertiary-container hover:text-rose-700 dark:hover:text-on-tertiary flex items-center gap-2" onclick="deleteSkill('Multi-Tenant Vector Synthesizer')">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Eliminar</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-baseline justify-between mb-1.5">
+<h2 class="font-headline-md text-headline-md text-slate-900 dark:text-on-surface tracking-tight group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors">Multi-Tenant Vector Synthesizer</h2>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">v3.5.0</span>
+</div>
+<p class="font-body-md text-body-md text-slate-600 dark:text-on-surface-variant mb-5 line-clamp-2">
+          Embeddings híbridos con re-ranking semántico para informes trimestrales SEC 10-K y balances consolidados corporativos.
+        </p>
+</div>
+<div>
+<div class="bg-slate-50 dark:bg-surface-container-low p-3 mb-4 flex items-center justify-between border border-slate-100 dark:border-transparent">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">HABILITADA EN</span>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-emerald-600 dark:text-secondary">smart_toy</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface">11 agentes</span>
+</div>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">LATENCIA AVG</span>
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface mt-0.5">74ms</span>
+</div>
+<div class="h-6 w-px bg-slate-200 dark:bg-surface-variant"></div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">CONFIABILIDAD</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-semibold mt-0.5">99.95%</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 font-code-num text-code-num text-slate-500 dark:text-outline">
+<span class="material-symbols-outlined text-[14px]">hub</span>
+<span>Qdrant / Milvus / Cohere</span>
+</div>
+<button class="font-label-md text-label-md uppercase text-indigo-600 dark:text-primary hover:text-indigo-800 dark:hover:text-surface-tint font-semibold flex items-center gap-1" onclick="openSkillModal('VECTOR')">
+<span>Configuración</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Realtime Telemetry Drawer Bar -->
+<div class="mt-8 bg-white dark:bg-surface-container-low p-4 flex flex-col md:flex-row items-center justify-between gap-4 border border-slate-200 dark:border-transparent shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-2.5 h-2.5 bg-emerald-500 dark:bg-secondary"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-900 dark:text-on-surface font-semibold">SKILL DISPATCH PIPELINE ACTIVO</span>
+<span class="font-code-num text-code-num text-slate-500 dark:text-outline">Todos los subprocesos gRPC enlazados vía Socket IPC de baja latencia</span>
+</div>
+</div>
+<div class="flex items-center gap-6 font-code-num text-code-num">
+<div class="text-slate-600 dark:text-on-surface-variant">
+<span class="text-slate-500 dark:text-outline">CARGA CONCURRENTE:</span> <span class="text-slate-900 dark:text-on-surface font-semibold">632 req/s</span>
+</div>
+<div class="text-slate-600 dark:text-on-surface-variant">
+<span class="text-slate-500 dark:text-outline">MEMORIA TOTAL VENDOR:</span> <span class="text-slate-900 dark:text-on-surface font-semibold">14.2 GB / 64 GB</span>
+</div>
+<a class="font-label-md text-label-md uppercase text-indigo-600 dark:text-primary hover:text-indigo-800 dark:hover:text-surface-tint font-semibold flex items-center gap-1" href="#">
+<span>Inspeccionar logs</span>
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+</a>
+</div>
+</div>
+<!-- Interactive Modal for Skill Details -->
+<div class="fixed inset-0 bg-slate-900/40 dark:bg-surface-container-lowest/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4" id="skill-modal-backdrop">
+<div class="bg-white dark:bg-surface-container w-full max-w-4xl shadow-2xl flex flex-col max-h-[921px] overflow-hidden border border-slate-200 dark:border-transparent" id="skill-modal-card">
+<!-- Modal Header -->
+<div class="p-6 bg-slate-50 dark:bg-surface-container-high border-b border-slate-200 dark:border-transparent flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="p-2.5 bg-white dark:bg-surface-container text-indigo-600 dark:text-primary border border-slate-200 dark:border-transparent flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">terminal</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase text-emerald-600 dark:text-secondary tracking-wider font-semibold" id="modal-category">ANÁLISIS FINANCIERO</span>
+<span class="text-slate-400 dark:text-outline">/</span>
+<span class="font-code-num text-code-num text-slate-500 dark:text-outline" id="modal-version">v3.1.2-stable</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-slate-900 dark:text-on-surface mt-0.5" id="modal-title">Financial Ledger OCR</h2>
+</div>
+</div>
+<button class="w-8 h-8 flex items-center justify-center bg-slate-100 dark:bg-surface-container-low text-slate-600 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface hover:bg-slate-200 dark:hover:bg-surface-container transition-colors" onclick="closeSkillModal()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body (Scrollable) -->
+<div class="p-6 overflow-y-auto flex flex-col gap-6">
+<!-- Summary Description -->
+<div>
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline tracking-wider font-semibold">PROPÓSITO &amp; RUNTIME</span>
+<p class="font-body-md text-body-md text-slate-800 dark:text-on-surface mt-1" id="modal-desc">
+            Extracción y conciliación contable de balances y facturas complejas mediante inferencia visual multiespectral, alineamiento de balance general y normalización a estándar IFRS/GAAP.
+          </p>
+</div>
+<!-- 2 Column: API Endpoints & Dependencies -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Endpoints -->
+<div class="bg-slate-50 dark:bg-surface-container-low p-4 border border-slate-200 dark:border-transparent">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm uppercase text-slate-900 dark:text-on-surface tracking-wider font-semibold">ENDPOINTS DE API DISPONIBLES</span>
+<span class="font-code-num text-code-num text-indigo-600 dark:text-primary">JSON-RPC / REST</span>
+</div>
+<div class="flex flex-col gap-2 font-code-num text-code-num">
+<div class="bg-white dark:bg-surface-container p-2 flex items-center justify-between border border-slate-200 dark:border-transparent">
+<div class="flex items-center gap-2">
+<span class="text-emerald-600 dark:text-secondary font-bold">POST</span>
+<span class="text-slate-800 dark:text-on-surface">/v1/ocr/process-ledger</span>
+</div>
+<span class="text-slate-400 dark:text-outline text-[11px]">Async / Hook</span>
+</div>
+<div class="bg-white dark:bg-surface-container p-2 flex items-center justify-between border border-slate-200 dark:border-transparent">
+<div class="flex items-center gap-2">
+<span class="text-emerald-600 dark:text-secondary font-bold">POST</span>
+<span class="text-slate-800 dark:text-on-surface">/v1/ocr/reconcile-batches</span>
+</div>
+<span class="text-slate-400 dark:text-outline text-[11px]">Batch Sync</span>
+</div>
+<div class="bg-white dark:bg-surface-container p-2 flex items-center justify-between border border-slate-200 dark:border-transparent">
+<div class="flex items-center gap-2">
+<span class="text-indigo-600 dark:text-primary font-bold">GET</span>
+<span class="text-slate-800 dark:text-on-surface">/v1/ocr/telemetry/health</span>
+</div>
+<span class="text-emerald-600 dark:text-secondary text-[11px]">200 OK</span>
+</div>
+</div>
+</div>
+<!-- Dependencies -->
+<div class="bg-slate-50 dark:bg-surface-container-low p-4 border border-slate-200 dark:border-transparent">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm uppercase text-slate-900 dark:text-on-surface tracking-wider font-semibold">DEPENDENCIAS DE INFRAESTRUCTURA</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-semibold">COMPATIBILIDAD OK</span>
+</div>
+<div class="flex flex-col gap-2 font-code-num text-code-num">
+<div class="bg-white dark:bg-surface-container p-2 flex items-center justify-between border border-slate-200 dark:border-transparent">
+<span class="text-slate-800 dark:text-on-surface">@agent-hub/vision-core</span>
+<span class="text-slate-500 dark:text-outline">^4.1.0</span>
+</div>
+<div class="bg-white dark:bg-surface-container p-2 flex items-center justify-between border border-slate-200 dark:border-transparent">
+<span class="text-slate-800 dark:text-on-surface">tesseract-native-wasm</span>
+<span class="text-slate-500 dark:text-outline">5.3.1</span>
+</div>
+<div class="bg-white dark:bg-surface-container p-2 flex items-center justify-between border border-slate-200 dark:border-transparent">
+<span class="text-slate-800 dark:text-on-surface">libpoppler-glib-linux</span>
+<span class="text-emerald-600 dark:text-secondary font-semibold">SYSTEM SO</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Environment Variables -->
+<div class="bg-slate-50 dark:bg-surface-container-low p-4 border border-slate-200 dark:border-transparent">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm uppercase text-slate-900 dark:text-on-surface tracking-wider font-semibold">VARIABLES DE ENTORNO REQUERIDAS</span>
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">ENV SECRETS (VAULT INTEGRATION)</span>
+</div>
+<div class="bg-white dark:bg-surface-container-lowest p-3 font-code-num text-code-num text-slate-700 dark:text-on-surface-variant space-y-1.5 border border-slate-200 dark:border-transparent">
+<div class="flex items-center justify-between">
+<span class="text-indigo-600 dark:text-primary font-semibold">OCR_PARSER_CONCURRENCY</span>
+<span class="text-slate-900 dark:text-on-surface">16</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-indigo-600 dark:text-primary font-semibold">FIN_TAXONOMY_REGION</span>
+<span class="text-slate-900 dark:text-on-surface">"EMEA-LATAM"</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-indigo-600 dark:text-primary font-semibold">SEC_STORAGE_BUCKET_KEY</span>
+<span class="text-slate-400 dark:text-outline">vault://core-secrets/ocr-s3-token</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-indigo-600 dark:text-primary font-semibold">CONFIDENCE_THRESHOLD</span>
+<span class="text-emerald-600 dark:text-secondary font-semibold">0.985</span>
+</div>
+</div>
+</div>
+<!-- Installed Agents Grid -->
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-sm text-label-sm uppercase text-slate-900 dark:text-on-surface tracking-wider font-semibold">AGENTES ASIGNADOS CON ESTA SKILL</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-semibold">HOT-ATTACH HABILITADO</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5" id="modal-agents-list">
+<div class="bg-slate-50 dark:bg-surface-container-low p-2.5 flex items-center gap-2 border border-slate-200 dark:border-transparent">
+<span class="w-2 h-2 bg-emerald-500 dark:bg-secondary"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-slate-900 dark:text-on-surface truncate">Agent-Audit-01</span>
+<span class="font-label-sm text-label-sm text-slate-500 dark:text-outline">Audit Core</span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-surface-container-low p-2.5 flex items-center gap-2 border border-slate-200 dark:border-transparent">
+<span class="w-2 h-2 bg-emerald-500 dark:bg-secondary"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-slate-900 dark:text-on-surface truncate">Agent-Treasury-X</span>
+<span class="font-label-sm text-label-sm text-slate-500 dark:text-outline">Ledger Ops</span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-surface-container-low p-2.5 flex items-center gap-2 border border-slate-200 dark:border-transparent">
+<span class="w-2 h-2 bg-emerald-500 dark:bg-secondary"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-slate-900 dark:text-on-surface truncate">Billing-Sentinel-4</span>
+<span class="font-label-sm text-label-sm text-slate-500 dark:text-outline">Invoice Pipeline</span>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-surface-container-low p-2.5 flex items-center gap-2 border border-slate-200 dark:border-transparent">
+<span class="w-2 h-2 bg-emerald-500 dark:bg-secondary"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-slate-900 dark:text-on-surface truncate">Compliance-Bot-9</span>
+<span class="font-label-sm text-label-sm text-slate-500 dark:text-outline">SEC Filing</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-4 bg-slate-50 dark:bg-surface-container-high border-t border-slate-200 dark:border-transparent flex items-center justify-between">
+<div class="flex items-center gap-2 font-code-num text-code-num text-slate-500 dark:text-outline">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>SANDBOX SIGNED BY SEC-ADMIN-CA</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 bg-white dark:bg-surface-container-low hover:bg-slate-100 dark:hover:bg-surface-variant text-slate-700 dark:text-on-surface font-label-md text-label-md uppercase border border-slate-200 dark:border-transparent transition-colors" onclick="closeSkillModal()">
+            Cerrar
+          </button>
+<button class="px-4 py-2 bg-indigo-600 dark:bg-primary hover:bg-indigo-700 dark:hover:bg-surface-tint text-white dark:text-on-primary font-label-md text-label-md uppercase transition-colors" onclick="alert('Configuración guardada en el catálogo de producción')">
+            Guardar Cambios
+          </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive JavaScript Logic -->
+<script>
+    // Theme Toggle Functionality
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const htmlEl = document.documentElement;
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        htmlEl.classList.add('dark');
+        if (themeIcon) themeIcon.textContent = 'dark_mode';
+        if (themeToggleBtn) themeToggleBtn.setAttribute('title', 'Modo oscuro activo (clic para modo claro)');
+      } else {
+        htmlEl.classList.remove('dark');
+        if (themeIcon) themeIcon.textContent = 'light_mode';
+        if (themeToggleBtn) themeToggleBtn.setAttribute('title', 'Modo claro activo (clic para modo oscuro)');
+      }
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const isDark = htmlEl.classList.contains('dark');
+        updateThemeUI(!isDark);
+      });
+    }
+
+    const skillData = {
+      OCR: {
+        title: "Financial Ledger OCR",
+        category: "ANÁLISIS FINANCIERO & VISIÓN",
+        version: "v3.1.2-stable",
+        desc: "Extracción y conciliación contable de balances y facturas complejas mediante inferencia visual multiespectral y alineamiento formal IFRS/GAAP.",
+        agents: [
+          { name: "Agent-Audit-01", sub: "Audit Core" },
+          { name: "Agent-Treasury-X", sub: "Ledger Ops" },
+          { name: "Billing-Sentinel-4", sub: "Invoice Pipeline" },
+          { name: "Compliance-Bot-9", sub: "SEC Filing" },
+          { name: "Invoicing-Worker-02", sub: "AP/AR" },
+          { name: "Tax-Analyst-V", sub: "Tax Compliance" }
+        ]
+      },
+      SQL: {
+        title: "SQL Optimization & Indexing",
+        category: "DEVOPS & CÓDIGO",
+        version: "v2.8.0-stable",
+        desc: "Análisis de planes de ejecución EXPLAIN ANALYZE y reescritura de queries PostgreSQL/Snowflake con síntesis heurística de índices de alta cardinalidad.",
+        agents: [
+          { name: "DataOps-Agent-Alpha", sub: "Cluster Ops" },
+          { name: "PG-Optimizer-Bot", sub: "Postgres Node" },
+          { name: "Snowflake-Sync-Daemon", sub: "Data Warehouse" },
+          { name: "ETL-Pipeline-Watcher", sub: "Batch Processor" }
+        ]
+      },
+      FRAUD: {
+        title: "Real-time Fraud Scorer",
+        category: "SEGURIDAD & FINANZAS",
+        version: "v1.9.4-rc2",
+        desc: "Detección estocástica de anomalías transaccionales en streaming Kafka con evaluación sub-10ms sobre patrones de grafos bipartitos y scoring de riesgo.",
+        agents: [
+          { name: "SecOps-Gatekeeper-01", sub: "Gateway" },
+          { name: "Payment-Stream-Scorer", sub: "Kafka Consumer" },
+          { name: "AntiMoneyLaundering-Bot", sub: "Compliance" }
+        ]
+      },
+      AST: {
+        title: "AST Code Refactor",
+        category: "DEVOPS & CÓDIGO",
+        version: "v4.0.1-stable",
+        desc: "Transformación de código legacy y análisis estático AST para TypeScript y Go preservando invariantes formales de tipado y mitigación de memory leaks.",
+        agents: [
+          { name: "DevRel-Refactor-Daemon", sub: "CI/CD Runner" },
+          { name: "TypeCheck-Synthesizer", sub: "Compiler Worker" },
+          { name: "Go-Modernizer-Agent", sub: "Backend Migrations" }
+        ]
+      },
+      SECURITY: {
+        title: "Autonomous PenTester Sandbox",
+        category: "SEGURIDAD DEFENSIVA",
+        version: "v1.2.0-exp",
+        desc: "Simulación de vectores de ataque OAuth2, CWE-79 e inyección de prompts en microservicios efímeros aislados bajo containers gVisor.",
+        agents: [
+          { name: "RedTeam-Emulation-01", sub: "PenTest Node" },
+          { name: "Firewall-AI-Evaluator", sub: "WAF Inspector" }
+        ]
+      },
+      VECTOR: {
+        title: "Multi-Tenant Vector Synthesizer",
+        category: "ANÁLISIS FINANCIERO & RAG",
+        version: "v3.5.0-stable",
+        desc: "Embeddings híbridos con re-ranking semántico para informes trimestrales SEC 10-K y balances consolidados corporativos multiactor.",
+        agents: [
+          { name: "RAG-Inference-Host", sub: "Vector Core" },
+          { name: "FinDoc-Search-Daemon", sub: "Knowledge Base" },
+          { name: "Market-Intelligence-AI", sub: "Feed Consumer" }
+        ]
+      },
+      NEW: {
+        title: "Nueva Skill de Capacidad",
+        category: "CONFIGURACIÓN INICIAL",
+        version: "v0.1.0-draft",
+        desc: "Definición de nueva capacidad modular para acoplamiento dinámico a través de especificación OpenAPI o gRPC Proto.",
+        agents: [
+          { name: "Sin agentes vinculados", sub: "Estado no productivo" }
+        ]
+      }
+    };
+
+    function toggleActionMenu(event, menuId) {
+      event.stopPropagation();
+      document.querySelectorAll('[id^="menu-"]').forEach(m => {
+        if (m.id !== menuId) m.classList.add('hidden');
+      });
+      const target = document.getElementById(menuId);
+      if (target) {
+        target.classList.toggle('hidden');
+      }
+    }
+
+    document.addEventListener('click', () => {
+      document.querySelectorAll('[id^="menu-"]').forEach(m => m.classList.add('hidden'));
+    });
+
+    function openSkillModal(key) {
+      const data = skillData[key] || skillData.OCR;
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-category').textContent = data.category;
+      document.getElementById('modal-version').textContent = data.version;
+      document.getElementById('modal-desc').textContent = data.desc;
+
+      const agentsContainer = document.getElementById('modal-agents-list');
+      agentsContainer.innerHTML = '';
+      data.agents.forEach(agent => {
+        const item = document.createElement('div');
+        item.className = 'bg-slate-50 dark:bg-surface-container-low p-2.5 flex items-center gap-2 border border-slate-200 dark:border-transparent';
+        item.innerHTML = `
+          <span class="w-2 h-2 bg-emerald-500 dark:bg-secondary"></span>
+          <div class="flex flex-col min-w-0">
+            <span class="font-label-md text-label-md text-slate-900 dark:text-on-surface truncate">${agent.name}</span>
+            <span class="font-label-sm text-label-sm text-slate-500 dark:text-outline">${agent.sub}</span>
+          </div>
+        `;
+        agentsContainer.appendChild(item);
+      });
+
+      document.getElementById('skill-modal-backdrop').classList.remove('hidden');
+    }
+
+    function closeSkillModal() {
+      document.getElementById('skill-modal-backdrop').classList.add('hidden');
+    }
+
+    function deleteSkill(skillName) {
+      if (confirm(`¿Confirmar eliminación de '${skillName}' de los nodos de ejecución? Esta acción invalidará los agentes que dependan de esta skill.`)) {
+        alert(`Skill '${skillName}' marcada para purga y desvinculación segura.`);
+      }
+    }
+  </script>
+</div></main></div></body></html>

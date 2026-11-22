@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-background":"#dae2fd","on-secondary":"#003824","surface-tint":"#c0c1ff","surface-container-high":"#222a3d","tertiary-container":"#ff516a","on-surface":"#dae2fd","secondary-fixed":"#6ffbbe","surface":"#0b1326","on-primary-fixed":"#07006c","error":"#ffb4ab","error-container":"#93000a","surface-variant":"#2d3449","on-primary":"#1000a9","tertiary-fixed-dim":"#ffb2b7","secondary-fixed-dim":"#4edea3","surface-container-lowest":"#060e20","on-primary-fixed-variant":"#2f2ebe","surface-container":"#171f33","inverse-primary":"#494bd6","surface-dim":"#0b1326","tertiary":"#ffb2b7","on-secondary-fixed-variant":"#005236","on-secondary-fixed":"#002113","secondary-container":"#00a572","on-tertiary-fixed-variant":"#92002a","outline":"#908fa0","on-secondary-container":"#00311f","secondary":"#4edea3","primary-fixed":"#e1e0ff","primary-fixed-dim":"#c0c1ff","on-surface-variant":"#c7c4d7","primary-container":"#8083ff","on-tertiary-container":"#5b0017","on-error":"#690005","on-tertiary":"#67001b","inverse-on-surface":"#283044","outline-variant":"#464554","on-primary-container":"#0d0096","on-tertiary-fixed":"#40000d","background":"#0b1326","primary":"#c0c1ff","tertiary-fixed":"#ffdadb","surface-bright":"#31394d","inverse-surface":"#dae2fd","on-error-container":"#ffdad6","surface-container-highest":"#2d3449","surface-container-low":"#131b2e"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"gutter":"1rem","space-md":"0.75rem","space-2xs":"0.125rem","gutter-mobile":"0.75rem","space-lg":"1.25rem","space-xs":"0.25rem","margin":"2rem","margin-mobile":"1rem","space-2xl":"2.5rem","space-sm":"0.5rem","space-xl":"1.75rem"},fontFamily:{"code-num":["Geist"],"label-md":["Geist"],"body-sm":["Geist"],"headline-sm":["Space Grotesk"],"headline-md":["Space Grotesk"],"body-md":["Geist"],"display-lg":["Space Grotesk"],"headline-xl-mobile":["Space Grotesk"],"label-sm":["Geist"],"headline-xl":["Space Grotesk"],"body-lg":["Geist"],"headline-lg":["Space Grotesk"],"display-lg-mobile":["Space Grotesk"]},fontSize:{"code-num":["13px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.06em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"16px",letterSpacing:"0em",fontWeight:"400"}],"headline-sm":["15px",{lineHeight:"20px",letterSpacing:"0em",fontWeight:"600"}],"headline-md":["18px",{lineHeight:"24px",letterSpacing:"-0.005em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"400"}],"display-lg":["48px",{lineHeight:"52px",letterSpacing:"-0.03em",fontWeight:"700"}],"headline-xl-mobile":["24px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-sm":["10px",{lineHeight:"14px",letterSpacing:"0.08em",fontWeight:"600"}],"headline-xl":["32px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"400"}],"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"display-lg-mobile":["32px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script></head><body class="bg-slate-50 dark:bg-background font-body-md text-slate-900 dark:text-on-surface antialiased transition-colors duration-200"><aside class="fixed left-0 top-0 h-full w-64 bg-white dark:bg-surface-container-low border-r border-slate-200 dark:border-transparent z-50 flex flex-col justify-between py-6 transition-colors duration-200"><div class="flex flex-col gap-6"><div class="px-6 flex items-center gap-3"><div class="w-8 h-8 bg-indigo-600 dark:bg-primary-container text-white dark:text-on-primary-container flex items-center justify-center font-headline-md font-bold"><span class="material-symbols-outlined text-[20px]">smart_toy</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-slate-900 dark:text-on-surface">Agent-Hub</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-emerald-600 dark:text-secondary">Internal Core</span></div></div><div class="px-4"><div class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline px-3 mb-2 tracking-widest">Operaciones</div><nav class="flex flex-col gap-1" data-active-classes="bg-indigo-50 text-indigo-600 dark:bg-surface-container-highest dark:text-primary font-bold"><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Dashboard</span></a><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="gestion-de-usuarios" href="#"><span class="material-symbols-outlined text-[20px]">manage_accounts</span><span>Gestión de usuarios</span></a><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="gestion-de-agentes" href="#"><span class="material-symbols-outlined text-[20px]">memory</span><span>Gestión de agentes</span></a><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="skills" href="#"><span class="material-symbols-outlined text-[20px]">psychology</span><span>Skills</span></a><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="contrataciones-de-agentes" href="#"><span class="material-symbols-outlined text-[20px]">handshake</span><span>Contrataciones de agentes</span></a><a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-on-surface-variant hover:bg-slate-100 dark:hover:bg-surface-container-high hover:text-slate-900 dark:hover:text-on-surface transition-colors font-body-md text-body-md" data-path="log-de-errores" href="#"><span class="material-symbols-outlined text-[20px]">terminal</span><span>Log de errores</span></a></nav></div></div><div class="px-4"><div class="bg-slate-100 dark:bg-surface-container p-3 flex items-center justify-between border border-slate-200 dark:border-transparent transition-colors duration-200"><div class="flex items-center gap-2"><div class="w-2 h-2 bg-emerald-500 dark:bg-secondary"></div><span class="font-code-num text-code-num text-slate-500 dark:text-on-surface-variant">v4.1.0-prod</span></div><span class="font-label-sm text-label-sm uppercase px-1.5 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-surface-container-highest dark:text-secondary-fixed">ONLINE</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-white/80 dark:bg-surface/80 backdrop-blur-xl z-40 px-8 flex items-center justify-between border-b border-slate-200 dark:border-transparent shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-colors duration-200"><div class="flex items-center gap-3 w-96"><div class="w-full flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-surface-container-low text-slate-500 dark:text-on-surface-variant focus-within:text-slate-900 dark:focus-within:text-on-surface border border-slate-200 dark:border-transparent"><span class="material-symbols-outlined text-[18px]">search</span><input class="w-full bg-transparent border-0 outline-none font-body-sm text-body-sm text-slate-900 dark:text-on-surface placeholder:text-slate-400 dark:placeholder:text-outline" placeholder="Buscar telemetría, agentes o identidades..." type="text"/></div></div><div class="flex items-center gap-4"><button class="w-9 h-9 flex items-center justify-center bg-slate-100 hover:bg-slate-200 dark:bg-surface-container-low dark:hover:bg-surface-container-high text-slate-600 hover:text-slate-900 dark:text-on-surface-variant dark:hover:text-on-surface transition-colors cursor-pointer" id="theme-toggle" title="Cambiar tema" type="button"><span class="material-symbols-outlined text-[20px]" id="theme-icon">dark_mode</span></button><button class="relative w-9 h-9 flex items-center justify-center bg-slate-100 hover:bg-slate-200 dark:bg-surface-container-low dark:hover:bg-surface-container-high text-slate-600 hover:text-slate-900 dark:text-on-surface-variant dark:hover:text-on-surface transition-colors" title="Notificaciones de sistema" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 bg-rose-500 dark:bg-tertiary-container"></span></button><div class="h-6 w-px bg-slate-200 dark:bg-surface-variant mx-1"></div><div class="flex items-center gap-3 pl-1"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-slate-900 dark:text-on-surface uppercase">Admin root</span><span class="font-label-sm text-label-sm text-slate-400 dark:text-outline">SecOps Admin</span></div><div class="w-8 h-8 rounded-full bg-indigo-600 dark:bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-white dark:text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 px-8 min-h-screen bg-slate-50 dark:bg-background transition-colors duration-200"><div class="flex flex-col w-full pb-16">
+<!-- Top Hero Header / Financial Overview -->
+<div class="flex flex-col gap-6 mb-8 pt-4">
+<!-- Breadcrumb / System Overline -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-slate-400 dark:text-outline">Operaciones</span>
+<span class="text-slate-300 dark:text-outline-variant font-code-num text-code-num">/</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-emerald-600 dark:text-secondary">Contratos &amp; Liquidaciones</span>
+</div>
+<div class="flex items-center gap-2 bg-white dark:bg-surface-container-low px-3 py-1.5 border border-slate-200 dark:border-transparent shadow-sm">
+<span class="w-2 h-2 bg-emerald-500 dark:bg-secondary"></span>
+<span class="font-code-num text-code-num text-slate-600 dark:text-on-surface-variant uppercase tracking-wider">Protocolo de Facturación: Smart-Contract v2.4</span>
+</div>
+</div>
+<!-- Main Title & Action Bar -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+<div class="flex flex-col gap-2">
+<h1 class="font-headline-xl text-headline-xl text-slate-900 dark:text-on-surface tracking-tight">Contratos de Alquiler de Agentes [FINAL]</h1>
+<p class="font-body-md text-body-md text-slate-600 dark:text-on-surface-variant max-w-2xl">
+          Monitoreo en tiempo real de licencias activas, consumo computacional dedicado y asignación de skills por tenant corporativo.
+        </p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-surface-container hover:bg-slate-100 dark:hover:bg-surface-container-high text-slate-800 dark:text-on-surface border border-slate-200 dark:border-transparent transition-colors font-label-md text-label-md uppercase tracking-wider shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-slate-400 dark:text-outline">tune</span>
+<span>Filtros Avanzados</span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-indigo-600 text-white dark:bg-primary-container dark:text-on-primary-container hover:bg-indigo-700 dark:hover:bg-primary dark:hover:text-on-primary transition-colors font-label-md text-label-md uppercase tracking-wider shadow-md" onclick="openNewContractModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Nueva Contratación</span>
+</button>
+</div>
+</div>
+<!-- Metrics Bento Strip -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-2">
+<!-- Total MRR -->
+<div class="bg-white dark:bg-surface-container-low p-5 flex flex-col justify-between border border-slate-200 dark:border-transparent shadow-sm relative overflow-hidden transition-colors duration-200">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-slate-400 dark:text-outline">Facturación Mensual (MRR)</span>
+<span class="material-symbols-outlined text-emerald-600 dark:text-secondary text-[20px]">payments</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-slate-900 dark:text-on-surface font-bold tracking-tight">$48,250</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">USD</span>
+</div>
+<div class="mt-4 flex items-center justify-between pt-3 bg-slate-50 dark:bg-surface-container/40 px-2 py-1.5 border-t border-slate-100 dark:border-transparent">
+<span class="font-label-sm text-label-sm text-emerald-600 dark:text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +14.8% vs mes ant.
+          </span>
+<span class="font-code-num text-code-num text-slate-500 dark:text-on-surface-variant">4 tenants activos</span>
+</div>
+</div>
+<!-- Computational Throughput -->
+<div class="bg-white dark:bg-surface-container-low p-5 flex flex-col justify-between border border-slate-200 dark:border-transparent shadow-sm transition-colors duration-200">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-slate-400 dark:text-outline">Instancias Asignadas</span>
+<span class="material-symbols-outlined text-indigo-600 dark:text-primary text-[20px]">memory</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-slate-900 dark:text-on-surface font-bold tracking-tight">16</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">Nodos H100</span>
+</div>
+<div class="mt-4 flex items-center justify-between pt-3 bg-slate-50 dark:bg-surface-container/40 px-2 py-1.5 border-t border-slate-100 dark:border-transparent">
+<span class="font-label-sm text-label-sm text-slate-500 dark:text-outline-variant">Capacidad: 88.2%</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary">0 throttling</span>
+</div>
+</div>
+<!-- Skills Executions -->
+<div class="bg-white dark:bg-surface-container-low p-5 flex flex-col justify-between border border-slate-200 dark:border-transparent shadow-sm transition-colors duration-200">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-slate-400 dark:text-outline">Skills Operativas</span>
+<span class="material-symbols-outlined text-indigo-500 dark:text-primary-fixed text-[20px]">psychology</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-slate-900 dark:text-on-surface font-bold tracking-tight">28</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">Módulos</span>
+</div>
+<div class="mt-4 flex items-center justify-between pt-3 bg-slate-50 dark:bg-surface-container/40 px-2 py-1.5 border-t border-slate-100 dark:border-transparent">
+<span class="font-label-sm text-label-sm text-indigo-600 dark:text-primary">4 en Hot-Reload</span>
+<span class="font-code-num text-code-num text-slate-500 dark:text-on-surface-variant">99.98% SLA</span>
+</div>
+</div>
+<!-- Critical Warnings / Pending Renewals -->
+<div class="bg-white dark:bg-surface-container-low p-5 flex flex-col justify-between border border-slate-200 dark:border-transparent shadow-sm transition-colors duration-200">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-slate-400 dark:text-outline">Renovaciones Próximas</span>
+<span class="material-symbols-outlined text-rose-500 dark:text-tertiary text-[20px]">event_repeat</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-slate-900 dark:text-on-surface font-bold tracking-tight">1</span>
+<span class="font-code-num text-code-num text-rose-600 dark:text-tertiary">Pendiente revisión</span>
+</div>
+<div class="mt-4 flex items-center justify-between pt-3 bg-slate-50 dark:bg-surface-container/40 px-2 py-1.5 border-t border-slate-100 dark:border-transparent">
+<span class="font-label-sm text-label-sm text-slate-600 dark:text-on-surface-variant">BBVA OpenRisk</span>
+<span class="font-code-num text-code-num text-rose-600 dark:text-tertiary">Vence en 6d</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Context Banner / Hardware Topology -->
+<div class="mb-6 bg-white dark:bg-surface-container p-4 flex flex-col md:flex-row items-center justify-between gap-4 border border-slate-200 dark:border-transparent shadow-sm transition-colors duration-200">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-slate-100 dark:bg-surface-container-high flex items-center justify-center text-indigo-600 dark:text-primary">
+<span class="material-symbols-outlined text-[22px]">dns</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface">Cluster Enterprise Iberia-Central (eu-west-3)</span>
+<span class="font-body-sm text-body-sm text-slate-600 dark:text-on-surface-variant">Liquidaciones con auto-débito corporativo ejecutadas cada día 1 de mes.</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 bg-emerald-500 dark:bg-secondary"></span>
+<span class="font-label-sm text-label-sm uppercase text-slate-500 dark:text-outline">Consumo Global: 4.82M Tokens/seg</span>
+</div>
+<button class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-surface-container-high dark:hover:bg-surface-bright text-slate-800 dark:text-on-surface font-label-sm text-label-sm uppercase tracking-wider transition-colors">
+        Exportar CSV Consolidado
+      </button>
+</div>
+</div>
+<!-- Main Contracts Table Section -->
+<div class="bg-white dark:bg-surface-container-low border border-slate-200 dark:border-transparent shadow-md overflow-hidden transition-colors duration-200">
+<div class="px-6 py-4 bg-slate-50 dark:bg-surface-container flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-transparent">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px] text-indigo-600 dark:text-primary">handshake</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface uppercase tracking-wider">Desglose de Contratos Vigentes y Auditoría</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center bg-white dark:bg-surface-container-lowest px-3 py-1.5 border border-slate-200 dark:border-transparent">
+<span class="material-symbols-outlined text-[16px] text-slate-400 dark:text-outline mr-2">filter_list</span>
+<select class="bg-transparent font-label-sm text-label-sm text-slate-800 dark:text-on-surface outline-none uppercase cursor-pointer">
+<option class="bg-white dark:bg-surface-container-lowest text-slate-900 dark:text-on-surface" value="all">Todos los Estados</option>
+<option class="bg-white dark:bg-surface-container-lowest text-slate-900 dark:text-on-surface" value="active">Activo</option>
+<option class="bg-white dark:bg-surface-container-lowest text-slate-900 dark:text-on-surface" value="pending">Renovación Pendiente</option>
+<option class="bg-white dark:bg-surface-container-lowest text-slate-900 dark:text-on-surface" value="expired">Expirado</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-surface-container-lowest text-slate-500 dark:text-outline font-label-sm text-label-sm uppercase tracking-wider border-b border-slate-200 dark:border-transparent">
+<th class="py-3.5 px-6 font-semibold">Cliente / Empresa</th>
+<th class="py-3.5 px-6 font-semibold">Agente Alquilado</th>
+<th class="py-3.5 px-6 font-semibold">Skills Contratadas</th>
+<th class="py-3.5 px-6 font-semibold">Vigencia (Inicio → Fin)</th>
+<th class="py-3.5 px-6 font-semibold">Estado</th>
+<th class="py-3.5 px-6 font-semibold text-right">Importe Mensual</th>
+<th class="py-3.5 px-6 font-semibold text-center w-16">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-surface-container">
+<!-- Row 1: Santander Global -->
+<tr class="hover:bg-slate-50 dark:hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-rose-100 text-rose-700 dark:bg-surface-container-high dark:text-tertiary-container flex items-center justify-center font-headline-sm font-bold">
+                  S
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors">Santander Global</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">ORG-SAN-8834</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-indigo-600 dark:text-primary">neurology</span>
+<span class="font-body-md text-body-md text-slate-900 dark:text-on-surface font-medium">Nexus-FinQuery</span>
+</div>
+<span class="font-label-sm text-label-sm text-slate-400 dark:text-outline uppercase pl-6">v3.2 Dedicated Instance</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-wrap gap-1.5 max-w-xs">
+<span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 dark:bg-surface-container-high dark:text-primary font-code-num text-code-num">SQL-Gen</span>
+<span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 dark:bg-surface-container-high dark:text-primary font-code-num text-code-num">SecAudit</span>
+<span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 dark:bg-surface-container-high dark:text-primary font-code-num text-code-num">FastEmbed</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col">
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface">2024-01-15</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">2024-12-31</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 text-emerald-700 dark:bg-surface-container dark:text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-emerald-500 dark:bg-secondary"></span>
+<span>Activo</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface font-bold">$12,500</span>
+<span class="block font-code-num text-code-num text-slate-400 dark:text-outline">USD / mes</span>
+</td>
+<td class="py-4 px-6 text-center relative">
+<div class="relative inline-block text-left">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-surface-container text-slate-500 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface" onclick="toggleDropdown('dropdown-1')" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-surface-container-high shadow-xl z-20 py-1 border border-slate-200 dark:border-transparent" id="dropdown-1">
+<button class="w-full text-left px-4 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container-highest flex items-center gap-2 font-label-md text-label-md" onclick="openDetailModal('Santander Global', 'Nexus-FinQuery', '$12,500', 'Activo', '2024-01-15', '2024-12-31', '$7,000', [ {name: 'SQL-Gen Engine', cost: '$2,500'}, {name: 'SecAudit Shield', cost: '$2,000'}, {name: 'FastEmbed FinBERT', cost: '$1,000'} ], '99.99%', '42.8M tokens')" type="button">
+<span class="material-symbols-outlined text-[16px] text-indigo-600 dark:text-primary">visibility</span>
+<span>Ver detalle</span>
+</button>
+<button class="w-full text-left px-4 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container-highest flex items-center gap-2 font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[16px] text-slate-400 dark:text-outline">picture_as_pdf</span>
+<span>Descargar Factura</span>
+</button>
+<button class="w-full text-left px-4 py-2 text-slate-500 dark:text-outline-variant hover:bg-slate-100 dark:hover:bg-surface-container-highest flex items-center gap-2 font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[16px]">pause_circle</span>
+<span>Pausar Instancia</span>
+</button>
+</div>
+</div>
+</td>
+</tr>
+<!-- Row 2: Iberia Logistics -->
+<tr class="hover:bg-slate-50 dark:hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-emerald-100 text-emerald-700 dark:bg-surface-container-high dark:text-secondary flex items-center justify-center font-headline-sm font-bold">
+                  I
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors">Iberia Logistics</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">ORG-IBE-2091</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-indigo-600 dark:text-primary">description</span>
+<span class="font-body-md text-body-md text-slate-900 dark:text-on-surface font-medium">DocuParser-LLM</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase pl-6">v1.9 Cluster Shared</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-wrap gap-1.5 max-w-xs">
+<span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 dark:bg-surface-container-high dark:text-primary font-code-num text-code-num">OCR-Vision</span>
+<span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 dark:bg-surface-container-high dark:text-primary font-code-num text-code-num">Customs-Validator</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col">
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface">2023-11-01</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">2024-10-31</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 text-emerald-700 dark:bg-surface-container dark:text-secondary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-emerald-500 dark:bg-secondary"></span>
+<span>Activo</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface font-bold">$8,400</span>
+<span class="block font-code-num text-code-num text-slate-400 dark:text-outline">USD / mes</span>
+</td>
+<td class="py-4 px-6 text-center relative">
+<div class="relative inline-block text-left">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-surface-container text-slate-500 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface" onclick="toggleDropdown('dropdown-2')" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-surface-container-high shadow-xl z-20 py-1 border border-slate-200 dark:border-transparent" id="dropdown-2">
+<button class="w-full text-left px-4 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container-highest flex items-center gap-2 font-label-md text-label-md" onclick="openDetailModal('Iberia Logistics', 'DocuParser-LLM', '$8,400', 'Activo', '2023-11-01', '2024-10-31', '$4,500', [ {name: 'OCR-Vision HD', cost: '$2,400'}, {name: 'Customs-Validator', cost: '$1,500'} ], '99.95%', '18.4M tokens')" type="button">
+<span class="material-symbols-outlined text-[16px] text-indigo-600 dark:text-primary">visibility</span>
+<span>Ver detalle</span>
+</button>
+<button class="w-full text-left px-4 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container-highest flex items-center gap-2 font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[16px] text-slate-400 dark:text-outline">picture_as_pdf</span>
+<span>Descargar Factura</span>
+</button>
+</div>
+</div>
+</td>
+</tr>
+<!-- Row 3: BBVA OpenRisk -->
+<tr class="hover:bg-slate-50 dark:hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-amber-100 text-amber-700 dark:bg-surface-container-high dark:text-tertiary flex items-center justify-center font-headline-sm font-bold">
+                  B
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors">BBVA OpenRisk</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">ORG-BBV-1140</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-indigo-600 dark:text-primary">query_stats</span>
+<span class="font-body-md text-body-md text-slate-900 dark:text-on-surface font-medium">RiskScorer-Auto</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase pl-6">v4.0 Isolated Sandbox</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-wrap gap-1.5 max-w-xs">
+<span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 dark:bg-surface-container-high dark:text-primary font-code-num text-code-num">MonteCarlo-Sim</span>
+<span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 dark:bg-surface-container-high dark:text-primary font-code-num text-code-num">Basel-III-Check</span>
+<span class="px-2 py-0.5 bg-indigo-50 text-indigo-700 dark:bg-surface-container-high dark:text-primary font-code-num text-code-num">LiveFeeds</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col">
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface">2023-08-01</span>
+<span class="font-code-num text-code-num text-rose-600 dark:text-tertiary font-semibold">2024-07-31 (Vence en 6d)</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 text-amber-700 dark:bg-surface-container dark:text-tertiary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-amber-500 dark:bg-tertiary animate-pulse"></span>
+<span>Renovación Pendiente</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface font-bold">$15,200</span>
+<span class="block font-code-num text-code-num text-slate-400 dark:text-outline">USD / mes</span>
+</td>
+<td class="py-4 px-6 text-center relative">
+<div class="relative inline-block text-left">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-surface-container text-slate-500 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface" onclick="toggleDropdown('dropdown-3')" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-surface-container-high shadow-xl z-20 py-1 border border-slate-200 dark:border-transparent" id="dropdown-3">
+<button class="w-full text-left px-4 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container-highest flex items-center gap-2 font-label-md text-label-md" onclick="openDetailModal('BBVA OpenRisk', 'RiskScorer-Auto', '$15,200', 'Renovación Pendiente', '2023-08-01', '2024-07-31', '$8,500', [ {name: 'MonteCarlo Engine', cost: '$3,200'}, {name: 'Basel-III Compliance', cost: '$2,000'}, {name: 'LiveMarket Realtime', cost: '$1,500'} ], '99.99%', '89.1M tokens')" type="button">
+<span class="material-symbols-outlined text-[16px] text-indigo-600 dark:text-primary">visibility</span>
+<span>Ver detalle</span>
+</button>
+<button class="w-full text-left px-4 py-2 text-rose-600 dark:text-tertiary hover:bg-slate-100 dark:hover:bg-surface-container-highest flex items-center gap-2 font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[16px]">autorenew</span>
+<span>Emitir Renovación</span>
+</button>
+</div>
+</div>
+</td>
+</tr>
+<!-- Row 4: Telefónica Digital -->
+<tr class="hover:bg-slate-50 dark:hover:bg-surface-container-high/60 transition-colors group opacity-85">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-slate-200 text-slate-600 dark:bg-surface-container-high dark:text-outline flex items-center justify-center font-headline-sm font-bold">
+                  T
+                </div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface group-hover:text-indigo-600 dark:group-hover:text-primary transition-colors">Telefónica Digital</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">ORG-TEF-4019</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-slate-400 dark:text-outline">terminal</span>
+<span class="font-body-md text-body-md text-slate-700 dark:text-on-surface font-medium">AutoRefactor-Go</span>
+</div>
+<span class="font-label-sm text-label-sm text-slate-400 dark:text-outline uppercase pl-6">v2.1 Decommissioned</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-wrap gap-1.5 max-w-xs">
+<span class="px-2 py-0.5 bg-slate-100 text-slate-600 dark:bg-surface-container dark:text-outline font-code-num text-code-num">AST-Analyzer</span>
+<span class="px-2 py-0.5 bg-slate-100 text-slate-600 dark:bg-surface-container dark:text-outline font-code-num text-code-num">Git-Automator</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="flex flex-col">
+<span class="font-code-num text-code-num text-slate-500 dark:text-outline">2023-01-10</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">2024-01-09</span>
+</div>
+</td>
+<td class="py-4 px-6">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 text-slate-600 dark:bg-surface-container dark:text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-1.5 h-1.5 bg-slate-400 dark:bg-outline"></span>
+<span>Expirado</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<span class="font-headline-sm text-headline-sm text-slate-500 dark:text-outline font-bold">$6,800</span>
+<span class="block font-code-num text-code-num text-slate-400 dark:text-outline-variant">USD / finalizado</span>
+</td>
+<td class="py-4 px-6 text-center relative">
+<div class="relative inline-block text-left">
+<button class="w-8 h-8 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-surface-container text-slate-500 dark:text-on-surface-variant hover:text-slate-900 dark:hover:text-on-surface" onclick="toggleDropdown('dropdown-4')" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+<div class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-surface-container-high shadow-xl z-20 py-1 border border-slate-200 dark:border-transparent" id="dropdown-4">
+<button class="w-full text-left px-4 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container-highest flex items-center gap-2 font-label-md text-label-md" onclick="openDetailModal('Telefónica Digital', 'AutoRefactor-Go', '$6,800', 'Expirado', '2023-01-10', '2024-01-09', '$4,000', [ {name: 'AST-Analyzer Engine', cost: '$1,800'}, {name: 'Git-Automator Bot', cost: '$1,000'} ], '99.80%', '9.2M tokens')" type="button">
+<span class="material-symbols-outlined text-[16px] text-indigo-600 dark:text-primary">visibility</span>
+<span>Ver detalle</span>
+</button>
+<button class="w-full text-left px-4 py-2 text-slate-800 dark:text-on-surface hover:bg-slate-100 dark:hover:bg-surface-container-highest flex items-center gap-2 font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[16px] text-slate-400 dark:text-outline">history</span>
+<span>Historial de Log</span>
+</button>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Telemetry Summary -->
+<div class="px-6 py-4 bg-slate-50 dark:bg-surface-container border-t border-slate-200 dark:border-transparent flex flex-col sm:flex-row items-center justify-between text-slate-500 dark:text-outline gap-4">
+<div class="flex items-center gap-4">
+<span class="font-code-num text-code-num">Mostrando 4 de 4 contratos registrados</span>
+<span class="text-slate-300 dark:text-outline-variant">|</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-emerald-600 dark:text-secondary">Liquidación automática ON</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 bg-white dark:bg-surface-container-lowest text-slate-400 dark:text-outline-variant border border-slate-200 dark:border-transparent font-code-num text-code-num cursor-not-allowed">Anterior</button>
+<span class="px-3 py-1 bg-slate-200 dark:bg-surface-container-high text-slate-900 dark:text-on-surface font-code-num text-code-num">1</span>
+<button class="px-3 py-1 bg-white dark:bg-surface-container-lowest text-slate-400 dark:text-outline-variant border border-slate-200 dark:border-transparent font-code-num text-code-num cursor-not-allowed">Siguiente</button>
+</div>
+</div>
+</div>
+<!-- Operational Telemetry / Usage Breakdown Bento Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+<!-- Token Distribution Card -->
+<div class="bg-white dark:bg-surface-container-low p-6 flex flex-col justify-between border border-slate-200 dark:border-transparent shadow-sm transition-colors duration-200">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-600 dark:text-primary text-[20px]">donut_large</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface uppercase tracking-wider">Distribución de Consumo</span>
+</div>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">Mes en curso</span>
+</div>
+<!-- Visual SVG Chart -->
+<div class="flex items-center justify-center my-3 relative">
+<svg class="w-40 h-40 transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background track -->
+<circle class="text-slate-200 dark:text-surface-container" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="12"></circle>
+<!-- Segment 1: Santander (35%) -->
+<circle class="text-indigo-500 dark:text-primary-container" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="87.9" stroke-width="12"></circle>
+<!-- Segment 2: BBVA (45%) -->
+<circle class="text-emerald-500 dark:text-secondary" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="150" stroke-width="12"></circle>
+<!-- Segment 3: Iberia (20%) -->
+<circle class="text-rose-400 dark:text-tertiary" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="200" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+<span class="font-headline-md text-headline-md text-slate-900 dark:text-on-surface font-bold">159.5M</span>
+<span class="font-label-sm text-label-sm text-slate-400 dark:text-outline uppercase tracking-wider">Tokens Totales</span>
+</div>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="flex items-center gap-2 text-slate-600 dark:text-on-surface-variant">
+<span class="w-2.5 h-2.5 bg-emerald-500 dark:bg-secondary"></span> BBVA OpenRisk (55.8%)
+          </span>
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface">89.1M</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="flex items-center gap-2 text-slate-600 dark:text-on-surface-variant">
+<span class="w-2.5 h-2.5 bg-indigo-500 dark:bg-primary-container"></span> Santander Global (26.8%)
+          </span>
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface">42.8M</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="flex items-center gap-2 text-slate-600 dark:text-on-surface-variant">
+<span class="w-2.5 h-2.5 bg-rose-400 dark:bg-tertiary"></span> Iberia Logistics (11.5%)
+          </span>
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface">18.4M</span>
+</div>
+</div>
+</div>
+<!-- Active SLAs & Compute Health -->
+<div class="bg-white dark:bg-surface-container-low p-6 flex flex-col justify-between border border-slate-200 dark:border-transparent shadow-sm transition-colors duration-200">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 dark:text-secondary text-[20px]">speed</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface uppercase tracking-wider">Rendimiento &amp; SLA</span>
+</div>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 dark:bg-surface-container dark:text-secondary font-code-num text-code-num">TARGET: 99.9%</span>
+</div>
+<div class="flex flex-col gap-4 my-2">
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1.5">
+<span class="text-slate-800 dark:text-on-surface">Nexus-FinQuery (Santander)</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary">99.99% Uptime</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 dark:bg-surface-container">
+<div class="h-1.5 bg-emerald-500 dark:bg-secondary" style="width: 99.99%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1.5">
+<span class="text-slate-800 dark:text-on-surface">DocuParser-LLM (Iberia)</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary">99.95% Uptime</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 dark:bg-surface-container">
+<div class="h-1.5 bg-emerald-500 dark:bg-secondary" style="width: 99.95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1.5">
+<span class="text-slate-800 dark:text-on-surface">RiskScorer-Auto (BBVA)</span>
+<span class="font-code-num text-code-num text-indigo-600 dark:text-primary">99.99% Uptime</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 dark:bg-surface-container">
+<div class="h-1.5 bg-indigo-600 dark:bg-primary" style="width: 99.99%"></div>
+</div>
+</div>
+</div>
+<div class="bg-slate-50 dark:bg-surface-container p-3 flex items-center justify-between mt-2 border border-slate-200 dark:border-transparent">
+<span class="font-label-sm text-label-sm text-slate-500 dark:text-outline">Latencia P99 Promedio:</span>
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface font-bold">142ms</span>
+</div>
+</div>
+<!-- Skill Add-On Revenue Breakdown -->
+<div class="bg-white dark:bg-surface-container-low p-6 flex flex-col justify-between border border-slate-200 dark:border-transparent shadow-sm transition-colors duration-200">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-indigo-500 dark:text-primary-fixed text-[20px]">extension</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface uppercase tracking-wider">Top Skills Rentabilizadas</span>
+</div>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">Ingresos</span>
+</div>
+<div class="flex flex-col gap-3 my-2">
+<div class="flex items-center justify-between p-2.5 bg-slate-50 dark:bg-surface-container border border-slate-100 dark:border-transparent">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-indigo-600 dark:text-primary">data_object</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-slate-900 dark:text-on-surface">SQL-Gen Engine</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">2 contratos activos</span>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface font-bold">$5,000</span>
+</div>
+<div class="flex items-center justify-between p-2.5 bg-slate-50 dark:bg-surface-container border border-slate-100 dark:border-transparent">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-emerald-600 dark:text-secondary">query_stats</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-slate-900 dark:text-on-surface">MonteCarlo Engine</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">1 contrato activo</span>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface font-bold">$3,200</span>
+</div>
+<div class="flex items-center justify-between p-2.5 bg-slate-50 dark:bg-surface-container border border-slate-100 dark:border-transparent">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-rose-500 dark:text-tertiary">document_scanner</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-slate-900 dark:text-on-surface">OCR-Vision HD</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">1 contrato activo</span>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface font-bold">$2,400</span>
+</div>
+</div>
+<button class="w-full py-2 bg-slate-100 hover:bg-slate-200 dark:bg-surface-container-high dark:hover:bg-surface-bright text-indigo-600 dark:text-primary font-label-md text-label-md uppercase tracking-wider text-center transition-colors" type="button">
+        Explorar Catálogo de Skills
+      </button>
+</div>
+</div>
+<!-- MODAL: Detalle del Contrato (Full Financial & Compute Breakdown) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 dark:bg-background/80 backdrop-blur-md" id="contractDetailModal">
+<div class="bg-white dark:bg-surface-container-low max-w-3xl w-full shadow-2xl flex flex-col max-h-[942px] overflow-hidden border border-slate-200 dark:border-transparent">
+<!-- Modal Header -->
+<div class="px-6 py-5 bg-slate-50 dark:bg-surface-container flex items-center justify-between border-b border-slate-200 dark:border-transparent">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-indigo-600 text-white dark:bg-primary-container dark:text-on-primary-container flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-slate-900 dark:text-on-surface" id="modalClientTitle">Santander Global</h2>
+<span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 dark:bg-surface-container-high dark:text-secondary font-label-sm text-label-sm uppercase" id="modalStatusBadge">Activo</span>
+</div>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">Auditoría Financiera &amp; Cuota de Computación Asignada</span>
+</div>
+</div>
+<button class="w-8 h-8 flex items-center justify-center bg-slate-200 hover:bg-slate-300 dark:bg-surface-container-high dark:hover:bg-surface-bright text-slate-600 hover:text-slate-900 dark:text-on-surface-variant dark:hover:text-on-surface transition-colors" onclick="closeDetailModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-6 overflow-y-auto flex flex-col gap-6">
+<!-- Summary Strip -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-50 dark:bg-surface-container-lowest p-4 border border-slate-200 dark:border-transparent">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline">Agente Instanciado</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface font-semibold" id="modalAgentName">Nexus-FinQuery</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline">Vigencia</span>
+<span class="font-code-num text-code-num text-slate-900 dark:text-on-surface" id="modalValidity">2024-01-15 → 2024-12-31</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline">SLA Garantizado</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary font-bold" id="modalSla">99.99%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline">Consumo Acumulado</span>
+<span class="font-code-num text-code-num text-indigo-600 dark:text-primary font-bold" id="modalTokens">42.8M tokens</span>
+</div>
+</div>
+<!-- Financial Breakdown Detail -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between pb-2">
+<span class="font-label-md text-label-md uppercase tracking-wider text-slate-400 dark:text-outline">Estructura de Costes Mensuales</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline-variant">Moneda base: USD</span>
+</div>
+<!-- Base Instance Line -->
+<div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-surface-container border border-slate-200 dark:border-transparent">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px] text-indigo-600 dark:text-primary">server_person</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-slate-900 dark:text-on-surface font-medium">Tarifa Base: Instancia Dedicada</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">Reserva de computación 2x Nvidia H100 con failover regional</span>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface font-bold" id="modalBaseCost">$7,000.00</span>
+</div>
+<!-- Skills Installed Section -->
+<div class="flex flex-col gap-2 mt-2">
+<span class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline pl-1">Skills Adicionales Conectadas</span>
+<div class="flex flex-col gap-2" id="modalSkillsList">
+<!-- Dynamically populated via JS -->
+</div>
+</div>
+<!-- Subtotal / Total Bar -->
+<div class="mt-4 p-4 bg-slate-100 dark:bg-surface-container-high flex items-center justify-between border border-slate-200 dark:border-transparent">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md uppercase text-slate-500 dark:text-outline">Total Mensual Contratado</span>
+<span class="font-code-num text-code-num text-slate-600 dark:text-on-surface-variant">Facturación recurrente recurre el día 01</span>
+</div>
+<div class="text-right">
+<span class="font-display-lg-mobile text-display-lg-mobile text-emerald-600 dark:text-secondary font-bold" id="modalTotalAmount">$12,500.00</span>
+<span class="block font-code-num text-code-num text-slate-400 dark:text-outline">USD / mes neto</span>
+</div>
+</div>
+</div>
+<!-- Observability & SLA Metrics Grid -->
+<div class="flex flex-col gap-3 pt-2">
+<span class="font-label-md text-label-md uppercase tracking-wider text-slate-400 dark:text-outline">Telemetría de Ejecución (Últimas 24h)</span>
+<div class="grid grid-cols-3 gap-3">
+<div class="p-3 bg-slate-50 dark:bg-surface-container flex flex-col border border-slate-200 dark:border-transparent">
+<span class="font-label-sm text-label-sm text-slate-400 dark:text-outline uppercase">Latencia Inferencia</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface">118 ms</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary">Óptimo</span>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-surface-container flex flex-col border border-slate-200 dark:border-transparent">
+<span class="font-label-sm text-label-sm text-slate-400 dark:text-outline uppercase">Tasa de Error</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface">0.001%</span>
+<span class="font-code-num text-code-num text-emerald-600 dark:text-secondary">Sin incidentes</span>
+</div>
+<div class="p-3 bg-slate-50 dark:bg-surface-container flex flex-col border border-slate-200 dark:border-transparent">
+<span class="font-label-sm text-label-sm text-slate-400 dark:text-outline uppercase">Límite de Tokens</span>
+<span class="font-headline-sm text-headline-sm text-slate-900 dark:text-on-surface">50M / mes</span>
+<span class="font-code-num text-code-num text-slate-400 dark:text-outline">85.6% utilizado</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="px-6 py-4 bg-slate-50 dark:bg-surface-container flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200 dark:border-transparent">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-emerald-500 dark:bg-secondary"></span>
+<span class="font-code-num text-code-num text-slate-600 dark:text-on-surface-variant">Certificado Hash: SHA256:4f8e...91ab</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="w-full sm:w-auto px-4 py-2 bg-slate-200 hover:bg-slate-300 dark:bg-surface-container-high dark:hover:bg-surface-bright text-slate-800 dark:text-on-surface font-label-md text-label-md uppercase tracking-wider transition-colors" onclick="closeDetailModal()" type="button">
+            Cerrar
+          </button>
+<button class="w-full sm:w-auto px-5 py-2 bg-indigo-600 text-white dark:bg-primary dark:text-on-primary hover:bg-indigo-700 dark:hover:bg-primary-fixed-dim transition-colors font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm" onclick="downloadPdfMock()" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Descargar Factura PDF</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL: Nueva Contratación (Fast Drawer) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 dark:bg-background/80 backdrop-blur-md" id="newContractModal">
+<div class="bg-white dark:bg-surface-container-low max-w-lg w-full shadow-2xl flex flex-col overflow-hidden border border-slate-200 dark:border-transparent">
+<div class="px-6 py-4 bg-slate-50 dark:bg-surface-container flex items-center justify-between border-b border-slate-200 dark:border-transparent">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-indigo-600 dark:text-primary text-[22px]">post_add</span>
+<h2 class="font-headline-md text-headline-md text-slate-900 dark:text-on-surface">Nueva Contratación de Agente</h2>
+</div>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-surface-container-high text-slate-500 dark:text-on-surface-variant" onclick="closeNewContractModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="p-6 flex flex-col gap-4" onsubmit="handleCreateContract(event)">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline">Empresa / Tenant Cliente</label>
+<input class="w-full px-3 py-2 bg-slate-50 dark:bg-surface-container-lowest text-slate-900 dark:text-on-surface border border-slate-200 dark:border-transparent font-body-md text-body-md outline-none focus:ring-1 focus:ring-indigo-600 dark:focus:ring-primary" placeholder="Ej. CaixaBank Tech" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline">Agente Autónomo a Alquilar</label>
+<select class="w-full px-3 py-2 bg-slate-50 dark:bg-surface-container-lowest text-slate-900 dark:text-on-surface border border-slate-200 dark:border-transparent font-body-md text-body-md outline-none cursor-pointer">
+<option>Nexus-FinQuery (Finanzas &amp; SQL)</option>
+<option>DocuParser-LLM (Visión &amp; OCR)</option>
+<option>RiskScorer-Auto (Cálculo Actuarial)</option>
+<option>AutoRefactor-Go (DevSecOps)</option>
+</select>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline">Tarifa Base Mensual ($)</label>
+<input class="w-full px-3 py-2 bg-slate-50 dark:bg-surface-container-lowest text-slate-900 dark:text-on-surface border border-slate-200 dark:border-transparent font-code-num text-code-num outline-none" required="" type="number" value="7500"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline">Duración Contrato</label>
+<select class="w-full px-3 py-2 bg-slate-50 dark:bg-surface-container-lowest text-slate-900 dark:text-on-surface border border-slate-200 dark:border-transparent font-body-md text-body-md outline-none cursor-pointer">
+<option>6 Meses (Comprometido)</option>
+<option>12 Meses (Tarifa Preferente)</option>
+<option>Mensual (Flex)</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm uppercase text-slate-400 dark:text-outline">Skills Adicionales Pre-instaladas</label>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<label class="flex items-center gap-2 text-slate-600 dark:text-on-surface-variant font-label-md text-label-md cursor-pointer">
+<input checked="" class="w-4 h-4 bg-slate-100 dark:bg-surface-container-lowest accent-indigo-600 dark:accent-primary cursor-pointer" type="checkbox"/>
+<span>SQL-Gen Engine</span>
+</label>
+<label class="flex items-center gap-2 text-slate-600 dark:text-on-surface-variant font-label-md text-label-md cursor-pointer">
+<input checked="" class="w-4 h-4 bg-slate-100 dark:bg-surface-container-lowest accent-indigo-600 dark:accent-primary cursor-pointer" type="checkbox"/>
+<span>SecAudit Shield</span>
+</label>
+<label class="flex items-center gap-2 text-slate-600 dark:text-on-surface-variant font-label-md text-label-md cursor-pointer">
+<input class="w-4 h-4 bg-slate-100 dark:bg-surface-container-lowest accent-indigo-600 dark:accent-primary cursor-pointer" type="checkbox"/>
+<span>FastEmbed FinBERT</span>
+</label>
+<label class="flex items-center gap-2 text-slate-600 dark:text-on-surface-variant font-label-md text-label-md cursor-pointer">
+<input class="w-4 h-4 bg-slate-100 dark:bg-surface-container-lowest accent-indigo-600 dark:accent-primary cursor-pointer" type="checkbox"/>
+<span>Customs Validator</span>
+</label>
+</div>
+</div>
+<div class="flex justify-end gap-3 mt-4 pt-4 border-t border-slate-200 dark:border-transparent">
+<button class="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-surface-container text-slate-800 dark:text-on-surface font-label-md text-label-md uppercase" onclick="closeNewContractModal()" type="button">Cancelar</button>
+<button class="px-5 py-2 bg-indigo-600 text-white dark:bg-primary-container dark:text-on-primary-container hover:bg-indigo-700 dark:hover:bg-primary font-label-md text-label-md uppercase tracking-wider font-bold" type="submit">Generar Contrato</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Client-side Interactive Modal & Dark Mode Toggle Logic -->
+<script>
+    // Theme toggle management (matching dashboard SCREEN_3)
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+
+    function applyTheme(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        if (themeIcon) themeIcon.textContent = 'light_mode';
+        updateNavHighlight(true);
+      } else {
+        document.documentElement.classList.remove('dark');
+        if (themeIcon) themeIcon.textContent = 'dark_mode';
+        updateNavHighlight(false);
+      }
+    }
+
+    function updateNavHighlight(isDark) {
+      const activePath = 'contrataciones-de-agentes';
+      const navLinks = document.querySelectorAll('aside nav a[data-path]');
+      navLinks.forEach(link => {
+        if (link.getAttribute('data-path') === activePath) {
+          if (isDark) {
+            link.className = 'flex items-center gap-3 px-3 py-2 bg-surface-container-highest text-primary font-bold transition-colors font-body-md text-body-md';
+          } else {
+            link.className = 'flex items-center gap-3 px-3 py-2 bg-indigo-50 text-indigo-600 font-bold transition-colors font-body-md text-body-md';
+          }
+        } else {
+          if (isDark) {
+            link.className = 'flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors font-body-md text-body-md';
+          } else {
+            link.className = 'flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors font-body-md text-body-md';
+          }
+        }
+      });
+    }
+
+    // Initialize theme based on document class
+    const initialIsDark = document.documentElement.classList.contains('dark');
+    if (themeIcon) {
+      themeIcon.textContent = initialIsDark ? 'light_mode' : 'dark_mode';
+    }
+    updateNavHighlight(initialIsDark);
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const currentlyDark = document.documentElement.classList.contains('dark');
+        applyTheme(!currentlyDark);
+      });
+    }
+
+    function toggleDropdown(id) {
+      // Close other dropdowns
+      ['dropdown-1', 'dropdown-2', 'dropdown-3', 'dropdown-4'].forEach(dropId => {
+        if (dropId !== id) {
+          const el = document.getElementById(dropId);
+          if (el) el.classList.add('hidden');
+        }
+      });
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.toggle('hidden');
+      }
+    }
+
+    // Close open menus when clicking outside
+    window.addEventListener('click', function(e) {
+      if (!e.target.closest('td')) {
+        ['dropdown-1', 'dropdown-2', 'dropdown-3', 'dropdown-4'].forEach(dropId => {
+          const el = document.getElementById(dropId);
+          if (el && !el.classList.contains('hidden')) {
+            el.classList.add('hidden');
+          }
+        });
+      }
+    });
+
+    function openDetailModal(client, agent, totalAmount, status, startDate, endDate, baseCost, skills, sla, tokens) {
+      document.getElementById('modalClientTitle').innerText = client;
+      document.getElementById('modalAgentName').innerText = agent;
+      document.getElementById('modalTotalAmount').innerText = totalAmount + '.00';
+      document.getElementById('modalValidity').innerText = `${startDate} → ${endDate}`;
+      document.getElementById('modalSla').innerText = sla;
+      document.getElementById('modalTokens').innerText = tokens;
+      document.getElementById('modalBaseCost').innerText = baseCost + '.00';
+      
+      const badge = document.getElementById('modalStatusBadge');
+      badge.innerText = status;
+      if (status === 'Activo') {
+        badge.className = 'px-2 py-0.5 bg-emerald-50 text-emerald-700 dark:bg-surface-container-high dark:text-secondary font-label-sm text-label-sm uppercase';
+      } else if (status === 'Renovación Pendiente') {
+        badge.className = 'px-2 py-0.5 bg-amber-50 text-amber-700 dark:bg-surface-container-high dark:text-tertiary font-label-sm text-label-sm uppercase';
+      } else {
+        badge.className = 'px-2 py-0.5 bg-slate-100 text-slate-600 dark:bg-surface-container-high dark:text-outline font-label-sm text-label-sm uppercase';
+      }
+
+      // Populate skills
+      const skillsContainer = document.getElementById('modalSkillsList');
+      skillsContainer.innerHTML = '';
+      skills.forEach(skill => {
+        const item = document.createElement('div');
+        item.className = 'flex items-center justify-between p-2.5 bg-slate-50 dark:bg-surface-container-lowest border border-slate-100 dark:border-transparent';
+        item.innerHTML = `
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px] text-emerald-600 dark:text-secondary">check_circle</span>
+            <span class="font-body-md text-body-md text-slate-900 dark:text-on-surface">${skill.name}</span>
+          </div>
+          <span class="font-code-num text-code-num text-slate-900 dark:text-on-surface font-semibold">${skill.cost}.00 USD</span>
+        `;
+        skillsContainer.appendChild(item);
+      });
+
+      // Hide all open dropdowns
+      ['dropdown-1', 'dropdown-2', 'dropdown-3', 'dropdown-4'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+
+      document.getElementById('contractDetailModal').classList.remove('hidden');
+    }
+
+    function closeDetailModal() {
+      document.getElementById('contractDetailModal').classList.add('hidden');
+    }
+
+    function openNewContractModal() {
+      document.getElementById('newContractModal').classList.remove('hidden');
+    }
+
+    function closeNewContractModal() {
+      document.getElementById('newContractModal').classList.add('hidden');
+    }
+
+    function handleCreateContract(e) {
+      e.preventDefault();
+      alert('Contrato generado satisfactoriamente con firma criptográfica.');
+      closeNewContractModal();
+    }
+
+    function downloadPdfMock() {
+      alert('Generando factura consolidada con firma criptográfica en PDF... La descarga iniciará en segundos.');
+    }
+  </script>
+</div></main></div></body></html>

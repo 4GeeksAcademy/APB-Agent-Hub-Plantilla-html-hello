@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1326" />
+    <title>Agent Hub | Consola de operaciones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300..700,0..1&display=swap" rel="stylesheet" />
+    <script>
+      try {
+        if (localStorage.getItem('agenthub_theme') !== 'light') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (_) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              canvas: '#faf8ff',
+              'canvas-dark': '#0b1326',
+              panel: '#ffffff',
+              'panel-dark': '#131b2e',
+              'panel-raised': '#f1f5f9',
+              'panel-raised-dark': '#1a243b',
+              line: '#e2e8f0',
+              'line-dark': 'rgba(255,255,255,0.10)',
+              ink: '#0f172a',
+              'ink-dark': '#f8fafc',
+              quiet: '#475569',
+              'quiet-dark': '#94a3b8',
+              brand: '#4f46e5',
+              'brand-dark': '#c0c1ff',
+              good: '#047857',
+              'good-dark': '#34d399',
+              bad: '#b91c1c',
+              'bad-dark': '#f87171',
+              warn: '#b45309',
+              'warn-dark': '#fbbf24',
+            },
+            fontFamily: {
+              display: ['Space Grotesk', 'ui-sans-serif', 'system-ui'],
+              body: ['Inter', 'ui-sans-serif', 'system-ui'],
+              'dark-body': ['Geist', 'ui-sans-serif', 'system-ui'],
+              mono: ['ui-monospace', 'SFMono-Regular', 'monospace'],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen bg-canvas font-body text-ink transition-colors dark:bg-canvas-dark dark:font-dark-body dark:text-ink-dark">
+    <aside class="fixed inset-y-0 left-0 z-40 hidden w-64 flex-col border-r border-line bg-panel dark:border-line-dark dark:bg-panel-dark lg:flex" aria-label="Navegación principal">
+      <div class="flex items-center gap-3 border-b border-line px-5 py-5 dark:border-line-dark">
+        <div class="grid size-10 place-items-center bg-brand font-display text-xl font-bold text-white dark:bg-brand-dark dark:text-[#1000a9]" aria-hidden="true">A</div>
+        <div>
+          <p class="font-display text-lg font-bold">AGENT HUB</p>
+          <p class="font-mono text-xs uppercase tracking-widest text-good dark:text-good-dark">SecOps Monitoring v4.1</p>
+        </div>
+      </div>
+      <nav class="flex-1 space-y-1 px-3 py-5">
+        <button class="flex w-full items-center gap-3 border-l-2 border-transparent px-3 py-3 text-left text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="dashboard" aria-controls="dashboard" aria-current="page"><span class="material-symbols-outlined text-xl" aria-hidden="true">grid_view</span>Dashboard</button>
+        <button class="flex w-full items-center gap-3 border-l-2 border-transparent px-3 py-3 text-left text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="usuarios" aria-controls="usuarios"><span class="material-symbols-outlined text-xl" aria-hidden="true">group</span>Gestión de usuarios</button>
+        <button class="flex w-full items-center gap-3 border-l-2 border-transparent px-3 py-3 text-left text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="agentes" aria-controls="agentes"><span class="material-symbols-outlined text-xl" aria-hidden="true">memory</span>Gestión de agentes</button>
+        <button class="flex w-full items-center gap-3 border-l-2 border-transparent px-3 py-3 text-left text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="skills" aria-controls="skills"><span class="material-symbols-outlined text-xl" aria-hidden="true">extension</span>Skills</button>
+        <button class="flex w-full items-center gap-3 border-l-2 border-transparent px-3 py-3 text-left text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="contratos" aria-controls="contratos"><span class="material-symbols-outlined text-xl" aria-hidden="true">handshake</span>Contrataciones de agentes</button>
+        <button class="flex w-full items-center gap-3 border-l-2 border-transparent px-3 py-3 text-left text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="logs" aria-controls="logs"><span class="material-symbols-outlined text-lg" aria-hidden="true">terminal</span>Log de errores</button>
+      </nav>
+      <div class="border-t border-line px-4 py-4 dark:border-line-dark">
+        <div class="flex items-center justify-between font-mono text-xs text-quiet dark:text-quiet-dark">
+          <span>v4.1.0-prod</span>
+          <span class="inline-flex items-center gap-2 text-good dark:text-good-dark"><span class="size-2 rounded-full bg-good dark:bg-good-dark"></span>ONLINE</span>
+        </div>
+      </div>
+    </aside>
+
+    <div class="min-h-screen lg:pl-64">
+      <header class="sticky top-0 z-30 flex min-h-16 items-center justify-between gap-4 border-b border-line bg-canvas/95 px-4 backdrop-blur sm:px-6 lg:px-8 dark:border-line-dark dark:bg-canvas-dark/95">
+        <div class="min-w-0">
+          <p class="font-mono text-xs uppercase text-quiet dark:text-quiet-dark">Agent Hub / <span id="current-section-label">Dashboard</span></p>
+          <p class="truncate font-display text-lg font-semibold">Consola de operaciones</p>
+        </div>
+        <div class="flex shrink-0 items-center gap-2 sm:gap-4">
+          <span class="hidden text-xs text-quiet dark:text-quiet-dark sm:inline">ADMIN ROOT · SecOps Admin</span>
+          <button type="button" class="relative grid size-10 place-items-center border border-line hover:bg-panel-raised dark:border-line-dark dark:hover:bg-panel-raised-dark" aria-label="Ver alertas operativas" data-open-logs>
+            <span class="material-symbols-outlined" aria-hidden="true">notifications</span>
+            <span class="absolute right-1 top-1 size-2 rounded-full bg-rose-600" aria-hidden="true"></span>
+          </button>
+          <button class="inline-flex items-center gap-2 border border-line px-3 py-2 text-sm hover:bg-panel-raised dark:border-line-dark dark:hover:bg-panel-raised-dark" type="button" data-theme-toggle aria-label="Cambiar a modo claro">
+            <span aria-hidden="true" data-theme-icon>☼</span><span class="hidden sm:inline" data-theme-label>Modo claro</span>
+          </button>
+          <div class="grid size-9 place-items-center rounded-full bg-brand text-sm font-bold text-white dark:bg-brand-dark dark:text-[#1000a9]" aria-label="Usuario administrador">AR</div>
+        </div>
+      </header>
+
+      <nav class="flex gap-2 overflow-x-auto border-b border-line px-4 py-3 dark:border-line-dark lg:hidden" aria-label="Secciones">
+        <button class="flex w-auto shrink-0 items-center gap-2 border-b-2 border-transparent px-3 py-2 text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="dashboard" aria-controls="dashboard" aria-current="page">Dashboard</button>
+        <button class="flex w-auto shrink-0 items-center gap-2 border-b-2 border-transparent px-3 py-2 text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="usuarios" aria-controls="usuarios">Usuarios</button>
+        <button class="flex w-auto shrink-0 items-center gap-2 border-b-2 border-transparent px-3 py-2 text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="agentes" aria-controls="agentes">Agentes</button>
+        <button class="flex w-auto shrink-0 items-center gap-2 border-b-2 border-transparent px-3 py-2 text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="skills" aria-controls="skills">Skills</button>
+        <button class="flex w-auto shrink-0 items-center gap-2 border-b-2 border-transparent px-3 py-2 text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="contratos" aria-controls="contratos">Contrataciones de agentes</button>
+        <button class="flex w-auto shrink-0 items-center gap-2 border-b-2 border-transparent px-3 py-2 text-sm text-quiet hover:bg-panel-raised hover:text-ink dark:text-quiet-dark dark:hover:bg-panel-raised-dark dark:hover:text-ink-dark aria-[current=page]:border-brand aria-[current=page]:bg-panel-raised aria-[current=page]:font-semibold aria-[current=page]:text-brand dark:aria-[current=page]:border-brand-dark dark:aria-[current=page]:bg-panel-raised-dark dark:aria-[current=page]:text-brand-dark" data-view="logs" aria-controls="logs">Log de errores</button>
+      </nav>
+
+      <main class="mx-auto max-w-screen-2xl p-4 sm:p-6 lg:p-8">
+        <section id="dashboard" data-section aria-labelledby="dashboard-title" class="space-y-6">
+          <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p class="font-mono text-xs uppercase tracking-widest text-brand dark:text-brand-dark">Resumen mensual</p>
+              <h1 id="dashboard-title" class="mt-1 font-display text-2xl font-bold">Dashboard</h1>
+              <p class="mt-2 max-w-2xl text-sm text-quiet dark:text-quiet-dark">Estado operativo y actividad de los agentes alquilados.</p>
+            </div>
+            <span class="border border-line px-3 py-2 font-mono text-xs text-quiet dark:border-line-dark dark:text-quiet-dark">PERIODO · MES ACTUAL</span>
+          </div>
+          <div id="dashboard-metrics" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"></div>
+          <section class="rounded border border-line bg-panel dark:rounded-none dark:border-line-dark dark:bg-panel-dark" aria-labelledby="activity-title">
+            <div class="flex flex-wrap items-end justify-between gap-3 border-b border-line px-4 py-4 dark:border-line-dark sm:px-6">
+              <div><p class="font-mono text-xs uppercase tracking-widest text-quiet dark:text-quiet-dark">Métricas de ejecución operacional</p><h2 id="activity-title" class="mt-1 font-display text-lg font-semibold">Actividad semanal: cómputo vs. tasa de éxito</h2></div>
+              <span class="font-mono text-xs text-quiet dark:text-quiet-dark">PERIODO · 7 DÍAS</span>
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-panel-raised px-4 py-3 dark:border-line-dark dark:bg-panel-raised-dark sm:px-6">
+              <div class="flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs text-quiet dark:text-quiet-dark">
+                <span class="inline-flex items-center gap-2"><span class="size-2.5 bg-brand dark:bg-brand-dark"></span>Ejecuciones totales <strong class="text-ink dark:text-ink-dark">1.48M</strong></span>
+                <span class="inline-flex items-center gap-2"><span class="h-0.5 w-4 bg-good dark:bg-good-dark"></span>Tasa de éxito <strong class="text-good dark:text-good-dark">98.4%</strong></span>
+                <span class="inline-flex items-center gap-2"><span class="h-0.5 w-4 border-t border-dashed border-bad dark:border-bad-dark"></span>Umbral SLA 95%</span>
+              </div>
+              <p class="font-mono text-xs text-quiet dark:text-quiet-dark">LATENCIA P99 <strong class="text-ink dark:text-ink-dark">142 ms</strong></p>
+            </div>
+            <div class="h-64 bg-panel-raised p-3 dark:bg-panel-raised-dark sm:h-72 sm:p-5">
+              <svg class="h-full w-full" viewBox="0 0 800 240" preserveAspectRatio="none" role="img" aria-labelledby="activity-chart-title activity-chart-description">
+                <title id="activity-chart-title">Actividad semanal de ejecuciones y tasa de éxito</title>
+                <desc id="activity-chart-description">Columnas estrechas para las ejecuciones de lunes a domingo, con una línea superpuesta de tasa de éxito y umbral SLA del 95 por ciento.</desc>
+                <defs><linearGradient id="execution-bars" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#6366f1" stop-opacity="0.9"></stop><stop offset="100%" stop-color="#6366f1" stop-opacity="0.35"></stop></linearGradient></defs>
+                <g class="text-line dark:text-line-dark" stroke="currentColor" stroke-opacity="0.7"><line x1="30" x2="775" y1="35" y2="35"></line><line x1="30" x2="775" y1="90" y2="90"></line><line x1="30" x2="775" y1="145" y2="145"></line><line x1="30" x2="775" y1="200" y2="200"></line></g>
+                <g fill="url(#execution-bars)"><rect x="70" y="100" width="20" height="100"></rect><rect x="175" y="78" width="20" height="122"></rect><rect x="280" y="62" width="20" height="138"></rect><rect x="385" y="88" width="20" height="112"></rect><rect x="490" y="45" width="20" height="155"></rect><rect x="595" y="122" width="20" height="78"></rect><rect x="700" y="137" width="20" height="63"></rect></g>
+                <line x1="30" x2="775" y1="112" y2="112" stroke="#f43f5e" stroke-dasharray="5 5" stroke-opacity="0.8"></line>
+                <polyline points="80,58 185,52 290,45 395,70 500,40 605,62 710,55" fill="none" stroke="currentColor" class="text-good dark:text-good-dark" stroke-width="3" vector-effect="non-scaling-stroke"></polyline>
+                <g fill="none" stroke="currentColor" class="text-good dark:text-good-dark" stroke-width="2"><circle cx="80" cy="58" r="4"></circle><circle cx="185" cy="52" r="4"></circle><circle cx="290" cy="45" r="4"></circle><circle cx="395" cy="70" r="4"></circle><circle cx="500" cy="40" r="4"></circle><circle cx="605" cy="62" r="4"></circle><circle cx="710" cy="55" r="4"></circle></g>
+                <g class="fill-quiet dark:fill-quiet-dark" font-family="ui-monospace, monospace" font-size="11" text-anchor="middle"><text x="80" y="226">LUN</text><text x="185" y="226">MAR</text><text x="290" y="226">MIÉ</text><text x="395" y="226">JUE</text><text x="500" y="226">VIE</text><text x="605" y="226">SÁB</text><text x="710" y="226">DOM</text></g>
+                <rect x="446" y="8" width="108" height="23" class="fill-panel dark:fill-panel-dark"></rect><text x="500" y="24" text-anchor="middle" class="fill-good dark:fill-good-dark" font-family="ui-monospace, monospace" font-size="10" font-weight="700">99.1% ÉXITO</text>
+              </svg>
+            </div>
+          </section>
+          <div class="grid gap-4 xl:grid-cols-3">
+            <section class="rounded border border-line bg-panel dark:rounded-none dark:border-line-dark dark:bg-panel-dark xl:col-span-2" aria-labelledby="recent-activity-title">
+              <div class="flex items-center justify-between border-b border-line px-4 py-3 dark:border-line-dark sm:px-5"><div><p class="font-mono text-xs uppercase tracking-widest text-quiet dark:text-quiet-dark">Telemetría</p><h2 id="recent-activity-title" class="mt-1 font-display font-semibold">Actividad reciente</h2></div><button type="button" class="inline-flex items-center gap-1 font-mono text-xs uppercase text-brand hover:underline dark:text-brand-dark" data-open-logs>Ver log <span class="material-symbols-outlined text-base" aria-hidden="true">chevron_right</span></button></div>
+              <div id="recent-activity" class="divide-y divide-line dark:divide-line-dark"></div>
+            </section>
+            <section class="rounded border border-line bg-panel dark:rounded-none dark:border-line-dark dark:bg-panel-dark" aria-labelledby="fleet-status-title">
+              <div class="border-b border-line px-4 py-3 dark:border-line-dark sm:px-5"><p class="font-mono text-xs uppercase tracking-widest text-quiet dark:text-quiet-dark">Cluster</p><h2 id="fleet-status-title" class="mt-1 font-display font-semibold">Estado de flota</h2></div>
+              <div id="fleet-status" class="divide-y divide-line dark:divide-line-dark"></div>
+            </section>
+            <section class="rounded border border-line bg-panel dark:rounded-none dark:border-line-dark dark:bg-panel-dark" aria-labelledby="fleet-distribution-title">
+              <div class="border-b border-line px-4 py-3 dark:border-line-dark sm:px-5"><p class="font-mono text-xs uppercase tracking-widest text-quiet dark:text-quiet-dark">Topología</p><h2 id="fleet-distribution-title" class="mt-1 font-display font-semibold">Distribución de flota</h2></div>
+              <div id="fleet-distribution" class="space-y-4 p-4 sm:p-5"></div>
+            </section>
+          </div>
+        </section>
+
+        <section id="usuarios" data-section aria-labelledby="usuarios-title" class="hidden space-y-6">
+          <div><p class="font-mono text-xs uppercase tracking-widest text-brand dark:text-brand-dark">Directorio IAM</p><h1 id="usuarios-title" class="mt-1 font-display text-2xl font-bold">Gestión de usuarios</h1><p class="mt-2 text-sm text-quiet dark:text-quiet-dark">Usuarios, planes y estado de acceso.</p></div>
+          <div id="users-metrics" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"></div>
+          <div class="flex flex-wrap items-center justify-between gap-3"><p id="users-count" class="font-mono text-xs text-quiet dark:text-quiet-dark"></p><span class="border border-line px-3 py-2 text-xs dark:border-line-dark">Periodo de referencia: mes actual</span></div>
+          <div class="overflow-x-auto border border-line bg-panel dark:border-line-dark dark:bg-panel-dark">
+            <table class="w-full min-w-[48rem] text-left text-sm">
+              <thead class="bg-panel-raised font-mono text-xs uppercase text-quiet dark:bg-panel-raised-dark dark:text-quiet-dark"><tr><th class="px-4 py-3">Nombre</th><th class="px-4 py-3">Email</th><th class="px-4 py-3">Plan</th><th class="px-4 py-3">Estado</th><th class="px-4 py-3">Cuota de cómputo</th><th class="px-4 py-3 text-right">Acciones</th></tr></thead>
+              <tbody id="users-table" class="divide-y divide-line dark:divide-line-dark"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="agentes" data-section aria-labelledby="agentes-title" class="hidden space-y-6">
+          <div><p class="font-mono text-xs uppercase tracking-widest text-brand dark:text-brand-dark">Flota de inferencia</p><h1 id="agentes-title" class="mt-1 font-display text-2xl font-bold">Gestión de agentes</h1><p class="mt-2 text-sm text-quiet dark:text-quiet-dark">Estado de agentes, propietarios y capacidades asignadas.</p></div>
+          <div id="agents-metrics" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"></div>
+          <div id="agents-list" class="grid gap-4 xl:grid-cols-2"></div>
+        </section>
+
+        <section id="skills" data-section aria-labelledby="skills-title" class="hidden space-y-6">
+          <div><p class="font-mono text-xs uppercase tracking-widest text-brand dark:text-brand-dark">Infraestructura / Capacidades modulares</p><h1 id="skills-title" class="mt-1 font-display text-2xl font-bold">Catálogo de Skills</h1></div>
+          <section class="grid gap-5 rounded border border-line bg-panel p-5 dark:rounded-none dark:border-line-dark dark:bg-panel-dark lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center" aria-labelledby="skills-definition-title">
+            <div class="flex items-start gap-4"><span class="material-symbols-outlined border border-brand p-3 text-2xl text-brand dark:border-brand-dark dark:text-brand-dark" aria-hidden="true">psychology</span><div><p id="skills-definition-title" class="font-mono text-xs uppercase tracking-widest text-good dark:text-good-dark">Arquitectura del sistema</p><p class="mt-2 max-w-4xl text-sm leading-6 text-quiet dark:text-quiet-dark">Una <strong class="text-brand dark:text-brand-dark">skill</strong> es una capacidad preconfigurada que se puede adjuntar dinámicamente a uno o más agentes para ejecutar tareas especializadas.</p><div class="mt-3 flex flex-wrap gap-x-5 gap-y-2 font-mono text-xs text-quiet dark:text-quiet-dark"><span>Invocación aislada</span><span>Bindings modulares</span><span>Validación de salida</span></div></div></div>
+            <div id="skills-metrics" class="grid grid-cols-2 gap-4 border-t border-line pt-4 dark:border-line-dark lg:border-l lg:border-t-0 lg:pl-5 lg:pt-0"></div>
+          </section>
+          <div id="skills-list" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3"></div>
+          <section class="flex flex-col justify-between gap-4 rounded border border-line bg-panel p-4 dark:rounded-none dark:border-line-dark dark:bg-panel-dark md:flex-row md:items-center" aria-label="Estado de la tubería de skills">
+            <div class="flex items-center gap-3"><span class="size-2.5 bg-good dark:bg-good-dark"></span><div><p class="font-mono text-xs font-semibold uppercase">Skill dispatch pipeline activo</p><p class="mt-1 text-xs text-quiet dark:text-quiet-dark">Bindings de skills listos para los agentes del entorno de demostración.</p></div></div>
+            <div class="flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs text-quiet dark:text-quiet-dark"><span>AGENTES: <strong id="skill-agent-total" class="text-ink dark:text-ink-dark"></strong></span><span>SKILLS: <strong id="skill-module-total" class="text-ink dark:text-ink-dark"></strong></span><button type="button" class="text-brand hover:underline dark:text-brand-dark" data-view="logs">Inspeccionar logs →</button></div>
+          </section>
+        </section>
+
+        <section id="contratos" data-section aria-labelledby="contratos-title" class="hidden space-y-6">
+          <div><p class="font-mono text-xs uppercase tracking-widest text-good dark:text-good-dark">Operaciones / Contratos y liquidaciones</p><h1 id="contratos-title" class="mt-1 font-display text-2xl font-bold">Contratos de alquiler de agentes</h1><p class="mt-2 text-sm text-quiet dark:text-quiet-dark">Licencias activas y pasadas, consumo y skills asignadas por tenant.</p></div>
+          <div id="contracts-metrics" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"></div>
+          <div class="grid gap-4 xl:grid-cols-3">
+            <section class="border border-line bg-panel p-4 dark:border-line-dark dark:bg-panel-dark" aria-labelledby="tenant-breakdown-title"><div class="flex items-center justify-between border-b border-line pb-3 dark:border-line-dark"><h2 id="tenant-breakdown-title" class="font-display font-semibold">Desglose por cliente</h2><span class="font-mono text-xs text-quiet dark:text-quiet-dark">MRR</span></div><div id="tenant-breakdown" class="mt-3 space-y-3"></div></section>
+            <section class="border border-line bg-panel p-4 dark:border-line-dark dark:bg-panel-dark" aria-labelledby="contract-health-title"><div class="flex items-center justify-between border-b border-line pb-3 dark:border-line-dark"><h2 id="contract-health-title" class="font-display font-semibold">Estado de contratos</h2><span class="material-symbols-outlined text-brand dark:text-brand-dark" aria-hidden="true">speed</span></div><div id="contract-health" class="mt-3 space-y-3"></div></section>
+            <section class="border border-line bg-panel p-4 dark:border-line-dark dark:bg-panel-dark" aria-labelledby="top-skills-title"><div class="flex items-center justify-between border-b border-line pb-3 dark:border-line-dark"><h2 id="top-skills-title" class="font-display font-semibold">Skills más contratadas</h2><span class="material-symbols-outlined text-brand dark:text-brand-dark" aria-hidden="true">extension</span></div><div id="top-contracted-skills" class="mt-3 space-y-3"></div></section>
+          </div>
+          <div class="overflow-x-auto border border-line bg-panel dark:border-line-dark dark:bg-panel-dark">
+            <table class="w-full min-w-[64rem] text-left text-sm">
+              <thead class="bg-panel-raised font-mono text-xs uppercase text-quiet dark:bg-panel-raised-dark dark:text-quiet-dark"><tr><th class="px-4 py-3">Cliente</th><th class="px-4 py-3">Agente</th><th class="px-4 py-3">Skills contratadas</th><th class="px-4 py-3">Inicio</th><th class="px-4 py-3">Fin</th><th class="px-4 py-3 text-right">Importe pagado</th><th class="px-4 py-3 text-right">Acciones</th></tr></thead>
+              <tbody id="contracts-table" class="divide-y divide-line dark:divide-line-dark"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="logs" data-section aria-labelledby="logs-title" class="hidden space-y-6">
+          <div><p class="font-mono text-xs uppercase tracking-widest text-bad dark:text-bad-dark">SecOps Incident Stream / NODE_CLUSTER_EU_CENTRAL</p><h1 id="logs-title" class="mt-1 font-display text-2xl font-bold uppercase">Log de errores</h1><p class="mt-2 text-sm text-quiet dark:text-quiet-dark">Incidentes de ejecución, códigos técnicos y trazas de los agentes.</p></div>
+          <div id="errors-metrics" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"></div>
+          <div class="overflow-x-auto border border-line bg-panel dark:border-line-dark dark:bg-panel-dark">
+            <table class="w-full min-w-[64rem] text-left text-sm">
+              <thead class="bg-panel-raised font-mono text-xs uppercase text-quiet dark:bg-panel-raised-dark dark:text-quiet-dark"><tr><th class="px-4 py-3">Timestamp UTC</th><th class="px-4 py-3">Agente</th><th class="px-4 py-3">Descripción</th><th class="px-4 py-3">Tipo / código</th><th class="px-4 py-3">Estado</th><th class="px-4 py-3 text-right">Acciones</th></tr></thead>
+              <tbody id="errors-table" class="divide-y divide-line dark:divide-line-dark"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-line px-4 py-5 text-center font-mono text-xs text-quiet dark:border-line-dark dark:text-quiet-dark lg:ml-0">AGENT HUB · CONSOLA DE OPERACIONES · ENTORNO DE DEMOSTRACIÓN</footer>
+    </div>
+
+    <div id="modal-backdrop" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4" role="presentation">
+      <section id="dialog" class="w-full max-w-2xl overflow-hidden rounded-lg border border-line bg-panel text-ink dark:rounded-none dark:border-line-dark dark:bg-panel-dark dark:text-ink-dark" role="dialog" aria-modal="true" aria-labelledby="dialog-title" tabindex="-1">
+        <header class="flex items-start justify-between gap-4 border-b border-line px-5 py-4 dark:border-line-dark">
+          <div><p class="font-mono text-xs uppercase tracking-widest text-brand dark:text-brand-dark">Agent Hub · Detalle</p><h2 id="dialog-title" class="mt-1 font-display text-xl font-bold"></h2></div>
+          <button type="button" data-close-modal class="grid size-9 shrink-0 place-items-center border border-line text-lg hover:bg-panel-raised dark:border-line-dark dark:hover:bg-panel-raised-dark" aria-label="Cerrar ventana">×</button>
+        </header>
+        <div id="dialog-body" class="max-h-[70vh] overflow-y-auto p-5"></div>
+      </section>
+    </div>
+
+    <div id="toast" class="fixed bottom-4 right-4 z-[60] hidden max-w-sm border border-line bg-panel px-4 py-3 text-sm shadow-lg dark:border-line-dark dark:bg-panel-dark" role="status" aria-live="polite"></div>
+
+    <script>
+      const users = [
+        { id: 'USR-1001', name: 'Lucía Moreno', email: 'lucia.moreno@novalabs.example', plan: 'Enterprise', status: 'Activo', tenant: 'NovaLabs', role: 'Administradora de operaciones', quota: '12 agentes', joined: '2024-01-15' },
+        { id: 'USR-1002', name: 'Mateo Ruiz', email: 'mateo.ruiz@iberia.example', plan: 'Business', status: 'Activo', tenant: 'Iberia Logistics', role: 'Responsable de automatización', quota: '8 agentes', joined: '2024-02-02' },
+        { id: 'USR-1003', name: 'Sara Chen', email: 'sara.chen@apex.example', plan: 'Enterprise', status: 'Activo', tenant: 'Apex Capital', role: 'Líder de riesgo', quota: '10 agentes', joined: '2024-03-11' },
+        { id: 'USR-1004', name: 'Noah Patel', email: 'noah.patel@northstar.example', plan: 'Team', status: 'Inactivo', tenant: 'Northstar Software', role: 'Administrador de plataforma', quota: '4 agentes', joined: '2023-11-09' },
+        { id: 'USR-1005', name: 'Elena García', email: 'elena.garcia@novalabs.example', plan: 'Business', status: 'Activo', tenant: 'NovaLabs', role: 'Ingeniera de datos', quota: '6 agentes', joined: '2024-04-04' },
+      ];
+
+      const skills = [
+        { id: 'sql', name: 'SQL Optimization', description: 'Genera consultas y recomienda optimizaciones para cargas analíticas.', version: 'v2.1', runs24h: 184200, latencyP99: 42 },
+        { id: 'ocr', name: 'Document OCR', description: 'Extrae campos estructurados de facturas y documentos logísticos.', version: 'v4.0', runs24h: 122400, latencyP99: 88 },
+        { id: 'risk', name: 'Risk Scoring', description: 'Evalúa señales de riesgo y produce puntuaciones explicables.', version: 'v1.8', runs24h: 38600, latencyP99: 142 },
+        { id: 'code', name: 'Code Review', description: 'Detecta defectos comunes y propone revisiones de código.', version: 'v3.2', runs24h: 54000, latencyP99: 96 },
+        { id: 'customs', name: 'Customs Validator', description: 'Valida códigos arancelarios y campos de documentación aduanera.', version: 'v1.4', runs24h: 42200, latencyP99: 73 },
+        { id: 'vector', name: 'Vector Search', description: 'Recupera contexto relevante de índices vectoriales multi-tenant.', version: 'v1.2', runs24h: 96700, latencyP99: 57 },
+      ];
+
+      const agents = [
+        { id: 'AG-1001', name: 'Atlas Finance', tenant: 'NovaLabs', status: 'Activo', model: 'Claude 3.5 Sonnet', skills: ['sql', 'risk'], prompt: 'Asiste al equipo financiero con consultas verificables y análisis de riesgo. No inventes datos y explica los supuestos.' },
+        { id: 'AG-1002', name: 'DocuFlow', tenant: 'Iberia Logistics', status: 'Activo', model: 'GPT-4o', skills: ['ocr', 'customs'], prompt: 'Extrae datos de documentos logísticos y valida los códigos arancelarios antes de entregar resultados.' },
+        { id: 'AG-1003', name: 'Risk Monitor', tenant: 'Apex Capital', status: 'Fallando', model: 'Claude 3.5 Sonnet', skills: ['risk', 'sql'], prompt: 'Analiza señales de riesgo de crédito y entrega una puntuación explicable con sus factores principales.' },
+        { id: 'AG-1004', name: 'Code Maintainer', tenant: 'Northstar Software', status: 'Inactivo', model: 'GPT-4o', skills: ['code'], prompt: 'Revisa cambios de código y señala errores potenciales, riesgos de seguridad y oportunidades de simplificación.' },
+        { id: 'AG-1005', name: 'Knowledge Sentinel', tenant: 'NovaLabs', status: 'Activo', model: 'GPT-4o', skills: ['vector', 'sql'], prompt: 'Recupera contexto de fuentes autorizadas y devuelve respuestas concisas con referencias verificables.' },
+      ];
+
+      const contracts = [
+        { id: 'CT-3001', tenant: 'NovaLabs', agentId: 'AG-1001', status: 'Activo', start: '2026-01-01', end: '2026-12-31', base: 8000, paid: 12200, discount: 600, renewalSoon: true, skillPrices: { sql: 2800, risk: 2000 } },
+        { id: 'CT-3002', tenant: 'Iberia Logistics', agentId: 'AG-1002', status: 'Activo', start: '2026-02-01', end: '2027-01-31', base: 6000, paid: 7950, discount: 450, skillPrices: { ocr: 1500, customs: 900 } },
+        { id: 'CT-3003', tenant: 'Apex Capital', agentId: 'AG-1003', status: 'Activo', start: '2026-03-01', end: '2027-02-28', base: 10000, paid: 14400, discount: 800, skillPrices: { risk: 3200, sql: 2000 } },
+        { id: 'CT-3004', tenant: 'Northstar Software', agentId: 'AG-1004', status: 'Finalizado', start: '2024-01-01', end: '2024-12-31', base: 5000, paid: 6800, discount: 350, skillPrices: { code: 1800 } },
+      ];
+
+      const errors = [
+        { id: 'ER-5001', timestamp: '2026-11-20 14:32:09', agentId: 'AG-1003', type: 'Timeout', code: 'ERR_GATEWAY_TIMEOUT', severity: 'Crítico', description: 'El servicio de evaluación de riesgo agotó el tiempo de espera.', status: 'Abierto', trace: 'RiskMonitor.Worker\nUpstreamTimeout: no se recibieron cabeceras dentro del límite configurado.\nTask ER-5001 finalizada sin modificar datos.' },
+        { id: 'ER-5002', timestamp: '2026-11-20 13:48:44', agentId: 'AG-1002', type: 'Límite', code: 'ERR_RATE_LIMIT', severity: 'Advertencia', description: 'Se alcanzó el límite de solicitudes del extractor documental.', status: 'Abierto', trace: 'DocuFlow.OCR\nHTTP 429: límite temporal de solicitudes alcanzado.\nReintento pendiente.' },
+        { id: 'ER-5003', timestamp: '2026-11-20 12:20:05', agentId: 'AG-1001', type: 'Base de datos', code: 'ERR_DB_LOCK', severity: 'Crítico', description: 'Conflicto de bloqueo durante una consulta de informes.', status: 'Resuelto', trace: 'AtlasFinance.SQL\nTransactionConflict: operación cancelada por conflicto de bloqueo.\nNo se aplicaron cambios.' },
+        { id: 'ER-5004', timestamp: '2026-11-19 19:11:30', agentId: 'AG-1004', type: 'Ejecución', code: 'ERR_TASK_ABORT', severity: 'Advertencia', description: 'La revisión de un cambio se canceló antes de completar el análisis.', status: 'Abierto', trace: 'CodeMaintainer.Review\nTaskAborted: ejecución cancelada por el operador.\nNo se generó una recomendación final.' },
+        { id: 'ER-5005', timestamp: '2026-11-19 16:02:18', agentId: 'AG-1003', type: 'Memoria', code: 'ERR_MEMORY_LIMIT', severity: 'Crítico', description: 'La inferencia superó el límite de memoria configurado.', status: 'Abierto', trace: 'RiskMonitor.Inference\nMemoryLimitExceeded: recurso solicitado fuera del límite asignado.\nWorker puesto en estado de diagnóstico.' },
+        { id: 'ER-5006', timestamp: '2026-11-19 10:45:52', agentId: 'AG-1002', type: 'Validación', code: 'ERR_SCHEMA_INVALID', severity: 'Advertencia', description: 'Un documento no cumplió el esquema de salida esperado.', status: 'Resuelto', trace: 'DocuFlow.Validator\nSchemaValidationError: falta el campo shipment_reference.\nEl documento quedó marcado para revisión.' },
+      ];
+
+      const sectionLabels = { dashboard: 'Dashboard', usuarios: 'Gestión de usuarios', agentes: 'Gestión de agentes', skills: 'Skills', contratos: 'Contrataciones de agentes', logs: 'Log de errores' };
+      const modalBackdrop = document.getElementById('modal-backdrop');
+      const dialogTitle = document.getElementById('dialog-title');
+      const dialogBody = document.getElementById('dialog-body');
+      let lastFocusedElement = null;
+      let toastTimer;
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character]);
+      }
+
+      function formatMoney(value) {
+        return new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
+      }
+
+      function getAgent(agentId) {
+        return agents.find(agent => agent.id === agentId);
+      }
+
+      function getSkill(skillId) {
+        return skills.find(skill => skill.id === skillId);
+      }
+
+      function badgeClass(status) {
+        if (status === 'Activo' || status === 'Resuelto') return 'border border-emerald-300 bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950 dark:text-emerald-300';
+        if (status === 'Fallando' || status === 'Abierto') return 'border border-rose-300 bg-rose-50 px-2 py-1 text-xs font-semibold text-rose-800 dark:border-rose-800 dark:bg-rose-950 dark:text-rose-300';
+        if (status === 'Advertencia') return 'border border-amber-300 bg-amber-50 px-2 py-1 text-xs font-semibold text-amber-800 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-300';
+        return 'border border-slate-300 bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300';
+      }
+
+      function severityBadgeClass(severity) {
+        if (severity === 'Crítico') return 'inline-block border border-rose-300 bg-rose-50 px-2 py-1 text-xs font-semibold text-rose-800 dark:border-rose-800 dark:bg-rose-950 dark:text-rose-300';
+        return 'inline-block border border-amber-300 bg-amber-50 px-2 py-1 text-xs font-semibold text-amber-800 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-300';
+      }
+
+      function renderMetricStrip(targetId, metrics) {
+        document.getElementById(targetId).innerHTML = metrics.map(metric => `<article class="rounded border border-line bg-panel p-4 dark:rounded-none dark:border-line-dark dark:bg-panel-dark">
+          <div class="flex items-center justify-between gap-3"><span class="font-mono text-xs uppercase tracking-wider text-quiet dark:text-quiet-dark">${escapeHtml(metric.label)}</span><span class="material-symbols-outlined text-lg ${metric.tone}" aria-hidden="true">${escapeHtml(metric.icon)}</span></div>
+          <div class="mt-3 flex flex-wrap items-baseline justify-between gap-2"><strong class="font-display text-2xl tabular-nums ${metric.tone}">${escapeHtml(metric.value)}</strong><span class="font-mono text-xs text-quiet dark:text-quiet-dark">${escapeHtml(metric.note)}</span></div>
+          <div class="mt-3 h-1 bg-panel-raised dark:bg-panel-raised-dark"><div class="h-full ${metric.barTone} ${progressWidthClass(metric.percent)}"></div></div>
+        </article>`).join('');
+      }
+
+      function progressWidthClass(percent) {
+        if (percent >= 88) return 'w-full';
+        if (percent >= 63) return 'w-3/4';
+        if (percent >= 38) return 'w-1/2';
+        if (percent >= 13) return 'w-1/4';
+        return 'w-0';
+      }
+
+      function actionMenu(items, type, id) {
+        return `<div class="relative inline-block text-left" data-menu-root>
+          <button type="button" class="grid size-9 place-items-center border border-line text-lg hover:bg-panel-raised dark:border-line-dark dark:hover:bg-panel-raised-dark" aria-label="Acciones" aria-haspopup="menu" aria-expanded="false" data-menu-toggle>⋮</button>
+          <div class="absolute right-0 top-full z-50 mt-1 hidden max-h-56 min-w-40 overflow-y-auto border border-line bg-panel py-1 shadow-lg dark:border-line-dark dark:bg-panel-raised-dark" role="menu" data-menu-panel>
+            ${items.map(item => `<button type="button" class="block w-full px-3 py-2 text-left text-sm hover:bg-panel-raised dark:hover:bg-panel-dark" role="menuitem" data-action="${item.action}" data-type="${type}" data-id="${id}">${item.label}</button>`).join('')}
+          </div>
+        </div>`;
+      }
+
+      function renderDashboard() {
+        const monthlyContracts = contracts.filter(contract => contract.status === 'Activo');
+        const revenue = monthlyContracts.reduce((sum, contract) => sum + contract.paid, 0);
+        const discounts = monthlyContracts.reduce((sum, contract) => sum + contract.discount, 0);
+        const activeCount = agents.filter(agent => agent.status === 'Activo').length;
+        const failingCount = agents.filter(agent => agent.status === 'Fallando').length;
+        const metrics = [
+          { label: 'Ingresos totales · mes', value: formatMoney(revenue), icon: '↗', tone: 'border-emerald-500 text-emerald-700 dark:text-emerald-300' },
+          { label: 'Descuentos y cupones', value: formatMoney(discounts), icon: '−', tone: 'border-amber-500 text-amber-700 dark:text-amber-300' },
+          { label: 'Agentes activos', value: String(activeCount), icon: '⌘', tone: 'border-sky-500 text-sky-700 dark:text-sky-300' },
+          { label: 'Agentes fallando', value: String(failingCount), icon: '!', tone: 'border-rose-500 text-rose-700 dark:text-rose-300' },
+        ];
+        document.getElementById('dashboard-metrics').innerHTML = metrics.map(metric => `<article class="rounded border border-line border-t-4 ${metric.tone} bg-panel p-5 dark:rounded-none dark:border-line-dark dark:bg-panel-dark">
+          <div class="flex items-start justify-between gap-3"><p class="text-sm font-medium text-quiet dark:text-quiet-dark">${metric.label}</p><span class="grid size-9 place-items-center border border-current font-display text-lg" aria-hidden="true">${metric.icon}</span></div>
+          <p class="mt-5 font-display text-3xl font-bold tabular-nums text-ink dark:text-ink-dark">${metric.value}</p>
+        </article>`).join('');
+        document.getElementById('recent-activity').innerHTML = errors.slice(0, 3).map(error => {
+          const agent = getAgent(error.agentId);
+          return `<div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-5"><div class="min-w-0"><p class="truncate text-sm font-medium">${escapeHtml(error.description)}</p><p class="mt-1 font-mono text-xs text-quiet dark:text-quiet-dark">${escapeHtml(agent.name)} · ${escapeHtml(error.timestamp)} UTC</p></div><span class="${severityBadgeClass(error.severity)}">${escapeHtml(error.code)}</span></div>`;
+        }).join('');
+        document.getElementById('fleet-status').innerHTML = agents.map(agent => `<div class="flex items-center justify-between gap-3 px-4 py-3 sm:px-5"><div class="min-w-0"><p class="truncate text-sm font-semibold">${escapeHtml(agent.name)}</p><p class="truncate font-mono text-xs text-quiet dark:text-quiet-dark">${escapeHtml(agent.tenant)}</p></div><span class="${badgeClass(agent.status)}">${escapeHtml(agent.status)}</span></div>`).join('');
+        document.getElementById('fleet-distribution').innerHTML = ['Activo', 'Fallando', 'Inactivo'].map(status => {
+          const count = agents.filter(agent => agent.status === status).length;
+          return `<div><div class="mb-2 flex items-center justify-between gap-3 text-sm"><span class="${badgeClass(status)}">${escapeHtml(status)}</span><strong class="font-mono tabular-nums">${count} / ${agents.length}</strong></div><div class="h-1 bg-panel-raised dark:bg-panel-raised-dark"><div class="h-full ${status === 'Activo' ? 'bg-good dark:bg-good-dark' : status === 'Fallando' ? 'bg-bad dark:bg-bad-dark' : 'bg-slate-400 dark:bg-slate-500'} ${progressWidthClass(count / agents.length * 100)}"></div></div></div>`;
+        }).join('');
+      }
+
+      function renderUsers() {
+        document.getElementById('users-count').textContent = `${users.length} usuarios de muestra`;
+        const totalQuota = users.reduce((sum, user) => sum + Number.parseInt(user.quota, 10), 0);
+        const enterpriseCount = users.filter(user => user.plan === 'Enterprise').length;
+        const suspendedCount = users.filter(user => user.status !== 'Activo').length;
+        renderMetricStrip('users-metrics', [
+          { label: 'Total identidades', value: String(users.length), note: 'Directorio IAM', icon: 'group', tone: 'text-ink dark:text-ink-dark', barTone: 'bg-brand dark:bg-brand-dark', percent: 100 },
+          { label: 'Enterprise tier', value: String(enterpriseCount), note: 'Cuentas prioritarias', icon: 'workspace_premium', tone: 'text-brand dark:text-brand-dark', barTone: 'bg-brand dark:bg-brand-dark', percent: Math.round(enterpriseCount / users.length * 100) },
+          { label: 'Cuentas suspendidas', value: String(suspendedCount), note: 'Revisión de acceso', icon: 'person_off', tone: 'text-bad dark:text-bad-dark', barTone: 'bg-bad dark:bg-bad-dark', percent: Math.round(suspendedCount / users.length * 100) },
+          { label: 'Cuota de agentes', value: String(totalQuota), note: 'Slots asignados', icon: 'memory', tone: 'text-good dark:text-good-dark', barTone: 'bg-good dark:bg-good-dark', percent: Math.min(totalQuota * 2, 100) },
+        ]);
+        document.getElementById('users-table').innerHTML = users.map(user => `<tr class="hover:bg-panel-raised dark:hover:bg-panel-raised-dark">
+          <td class="px-4 py-4"><span class="block font-semibold">${escapeHtml(user.name)}</span><span class="font-mono text-xs text-quiet dark:text-quiet-dark">${escapeHtml(user.tenant)}</span></td>
+          <td class="px-4 py-4">${escapeHtml(user.email)}</td><td class="px-4 py-4">${escapeHtml(user.plan)}</td>
+          <td class="px-4 py-4"><span class="${badgeClass(user.status)}">${escapeHtml(user.status)}</span></td>
+          <td class="px-4 py-4 font-mono text-xs">${escapeHtml(user.quota)}</td>
+          <td class="px-4 py-4 text-right">${actionMenu([{ action: 'user-detail', label: 'Ver detalle' }, { action: 'demo-delete', label: 'Eliminar' }], 'user', user.id)}</td>
+        </tr>`).join('');
+      }
+
+      function renderAgents() {
+        const activeCount = agents.filter(agent => agent.status === 'Activo').length;
+        const failingCount = agents.filter(agent => agent.status === 'Fallando').length;
+        const inactiveCount = agents.filter(agent => agent.status === 'Inactivo').length;
+        renderMetricStrip('agents-metrics', [
+          { label: 'Total agentes', value: String(agents.length), note: 'Flota registrada', icon: 'hub', tone: 'text-ink dark:text-ink-dark', barTone: 'bg-brand dark:bg-brand-dark', percent: 100 },
+          { label: 'En ejecución', value: String(activeCount), note: `${Math.round(activeCount / agents.length * 100)}% de la flota`, icon: 'memory', tone: 'text-good dark:text-good-dark', barTone: 'bg-good dark:bg-good-dark', percent: Math.round(activeCount / agents.length * 100) },
+          { label: 'Con error', value: String(failingCount), note: 'Requiere triage', icon: 'warning', tone: 'text-bad dark:text-bad-dark', barTone: 'bg-bad dark:bg-bad-dark', percent: Math.round(failingCount / agents.length * 100) },
+          { label: 'Inactivos / staging', value: String(inactiveCount), note: 'Fuera de ejecución', icon: 'pause_circle', tone: 'text-quiet dark:text-quiet-dark', barTone: 'bg-slate-400 dark:bg-slate-500', percent: Math.round(inactiveCount / agents.length * 100) },
+        ]);
+        document.getElementById('agents-list').innerHTML = agents.map(agent => {
+          const skillNames = agent.skills.map(skillId => getSkill(skillId).name);
+          return `<article class="rounded border border-line bg-panel dark:rounded-none dark:border-line-dark dark:bg-panel-dark">
+            <div class="flex flex-wrap items-start justify-between gap-4 border-b border-line p-4 dark:border-line-dark sm:p-5">
+              <div class="min-w-0"><div class="flex flex-wrap items-center gap-3"><h2 class="font-display text-lg font-semibold">${escapeHtml(agent.name)}</h2><span class="${badgeClass(agent.status)}">${escapeHtml(agent.status)}</span></div><p class="mt-2 text-sm text-quiet dark:text-quiet-dark">Propietario: <span class="font-medium text-ink dark:text-ink-dark">${escapeHtml(agent.tenant)}</span></p><p class="mt-1 font-mono text-xs text-quiet dark:text-quiet-dark">${escapeHtml(agent.id)} · ${escapeHtml(agent.model)}</p></div>
+              ${actionMenu([{ action: 'agent-config', label: 'Configurar' }, { action: 'demo-delete', label: 'Eliminar' }], 'agent', agent.id)}
+            </div>
+            <div class="p-4 sm:p-5"><button type="button" class="inline-flex items-center gap-2 border border-line px-3 py-2 text-sm hover:bg-panel-raised dark:border-line-dark dark:hover:bg-panel-raised-dark" aria-expanded="false" aria-controls="skills-${agent.id}" data-accordion>Skills (${skillNames.length}) <span aria-hidden="true">⌄</span></button>
+              <div id="skills-${agent.id}" class="mt-0 grid max-h-0 grid-cols-1 gap-2 overflow-hidden opacity-0 transition-all duration-300 sm:grid-cols-2" data-accordion-panel>
+                ${skillNames.map(name => `<div class="mt-2 border border-line bg-panel-raised px-3 py-2 text-sm dark:border-line-dark dark:bg-panel-raised-dark">◇ ${escapeHtml(name)}</div>`).join('')}
+              </div>
+            </div>
+          </article>`;
+        }).join('');
+      }
+
+      function renderSkills() {
+        const totalInvocations = skills.reduce((sum, skill) => sum + skill.runs24h, 0);
+        const averageLatency = Math.round(skills.reduce((sum, skill) => sum + skill.runs24h * skill.latencyP99, 0) / totalInvocations);
+        renderMetricStrip('skills-metrics', [
+          { label: 'Invocaciones / 24 h', value: new Intl.NumberFormat('es-ES', { notation: 'compact', maximumFractionDigits: 1 }).format(totalInvocations), note: 'Todas las skills', icon: 'bolt', tone: 'text-brand dark:text-brand-dark', barTone: 'bg-brand dark:bg-brand-dark', percent: 84 },
+          { label: 'Latencia P99 global', value: `${averageLatency} ms`, note: 'Media ponderada', icon: 'speed', tone: 'text-good dark:text-good-dark', barTone: 'bg-good dark:bg-good-dark', percent: 68 },
+        ]);
+        document.getElementById('skill-agent-total').textContent = String(agents.length);
+        document.getElementById('skill-module-total').textContent = String(skills.length);
+        document.getElementById('skills-list').innerHTML = skills.map(skill => {
+          const assigned = agents.filter(agent => agent.skills.includes(skill.id));
+          return `<article class="flex flex-col rounded border border-line bg-panel dark:rounded-none dark:border-line-dark dark:bg-panel-dark">
+            <div class="flex items-start justify-between gap-3 border-b border-line px-4 py-3 dark:border-line-dark"><span class="font-mono text-xs text-quiet dark:text-quiet-dark">${escapeHtml(skill.version)}</span>${actionMenu([{ action: 'skill-detail', label: 'Ver detalle' }, { action: 'demo-delete', label: 'Eliminar' }], 'skill', skill.id)}</div>
+            <div class="flex-1 p-4"><div class="flex items-center gap-3"><span class="material-symbols-outlined grid size-10 place-items-center border border-brand text-xl text-brand dark:border-brand-dark dark:text-brand-dark" aria-hidden="true">extension</span><h2 class="font-display text-lg font-semibold">${escapeHtml(skill.name)}</h2></div><p class="mt-3 text-sm leading-6 text-quiet dark:text-quiet-dark">${escapeHtml(skill.description)}</p></div>
+            <div class="grid grid-cols-2 border-t border-line font-mono text-xs dark:border-line-dark"><div class="border-r border-line px-4 py-3 dark:border-line-dark"><span class="block text-quiet dark:text-quiet-dark">Agentes</span><strong class="mt-1 block text-ink dark:text-ink-dark">${assigned.length} asignados</strong></div><div class="px-4 py-3"><span class="block text-quiet dark:text-quiet-dark">Invocaciones / 24 h</span><strong class="mt-1 block text-ink dark:text-ink-dark">${new Intl.NumberFormat('es-ES', { notation: 'compact', maximumFractionDigits: 1 }).format(skill.runs24h)}</strong></div></div>
+          </article>`;
+        }).join('');
+      }
+
+      function renderContracts() {
+        const activeContracts = contracts.filter(contract => contract.status === 'Activo');
+        const activeRevenue = activeContracts.reduce((sum, contract) => sum + contract.paid, 0);
+        const activeSkillIds = activeContracts.flatMap(contract => Object.keys(contract.skillPrices));
+        const renewalsSoon = activeContracts.filter(contract => contract.renewalSoon).length;
+        renderMetricStrip('contracts-metrics', [
+          { label: 'Facturación mensual (MRR)', value: formatMoney(activeRevenue), note: `${activeContracts.length} tenants activos`, icon: 'payments', tone: 'text-good dark:text-good-dark', barTone: 'bg-good dark:bg-good-dark', percent: 76 },
+          { label: 'Agentes contratados', value: String(activeContracts.length), note: 'Instancias activas', icon: 'memory', tone: 'text-brand dark:text-brand-dark', barTone: 'bg-brand dark:bg-brand-dark', percent: Math.round(activeContracts.length / contracts.length * 100) },
+          { label: 'Skills operativas', value: String(new Set(activeSkillIds).size), note: 'En contratos activos', icon: 'extension', tone: 'text-brand dark:text-brand-dark', barTone: 'bg-brand dark:bg-brand-dark', percent: Math.round(new Set(activeSkillIds).size / skills.length * 100) },
+          { label: 'Renovaciones próximas', value: String(renewalsSoon), note: 'Revisión pendiente', icon: 'event_repeat', tone: renewalsSoon ? 'text-warn dark:text-warn-dark' : 'text-good dark:text-good-dark', barTone: renewalsSoon ? 'bg-warn dark:bg-warn-dark' : 'bg-good dark:bg-good-dark', percent: renewalsSoon ? 32 : 0 },
+        ]);
+        const tenantTotal = activeContracts.reduce((sum, contract) => sum + contract.paid, 0);
+        document.getElementById('tenant-breakdown').innerHTML = activeContracts.map(contract => `<div><div class="flex items-center justify-between gap-3 text-sm"><span class="truncate">${escapeHtml(contract.tenant)}</span><strong class="font-mono">${formatMoney(contract.paid)}</strong></div><div class="mt-2 h-1 bg-panel-raised dark:bg-panel-raised-dark"><div class="h-full bg-brand dark:bg-brand-dark ${progressWidthClass(contract.paid / tenantTotal * 100)}"></div></div></div>`).join('');
+        const statusCounts = ['Activo', 'Finalizado'].map(status => ({ status, count: contracts.filter(contract => contract.status === status).length }));
+        document.getElementById('contract-health').innerHTML = statusCounts.map(item => `<div class="flex items-center justify-between text-sm"><span>${escapeHtml(item.status)}</span><span class="${badgeClass(item.status)}">${item.count}</span></div>`).join('');
+        const skillRevenue = new Map();
+        activeContracts.forEach(contract => Object.entries(contract.skillPrices).forEach(([skillId, amount]) => skillRevenue.set(skillId, (skillRevenue.get(skillId) || 0) + amount)));
+        document.getElementById('top-contracted-skills').innerHTML = [...skillRevenue.entries()].sort((first, second) => second[1] - first[1]).slice(0, 3).map(([skillId, amount]) => `<div class="flex items-center justify-between gap-3 text-sm"><span class="truncate">${escapeHtml(getSkill(skillId).name)}</span><strong class="font-mono">${formatMoney(amount)}</strong></div>`).join('');
+        document.getElementById('contracts-table').innerHTML = contracts.map(contract => {
+          const agent = getAgent(contract.agentId);
+          const skillNames = Object.keys(contract.skillPrices).map(id => getSkill(id).name);
+          return `<tr class="hover:bg-panel-raised dark:hover:bg-panel-raised-dark">
+            <td class="px-4 py-4"><span class="block font-semibold">${escapeHtml(contract.tenant)}</span><span class="font-mono text-xs text-quiet dark:text-quiet-dark">${escapeHtml(contract.id)}</span></td>
+            <td class="px-4 py-4">${escapeHtml(agent.name)}</td><td class="px-4 py-4">${skillNames.map(escapeHtml).join(', ')}</td>
+            <td class="whitespace-nowrap px-4 py-4 font-mono text-xs">${escapeHtml(contract.start)}</td><td class="whitespace-nowrap px-4 py-4 font-mono text-xs">${escapeHtml(contract.end)}</td>
+            <td class="whitespace-nowrap px-4 py-4 text-right font-mono tabular-nums">${formatMoney(contract.paid)}</td>
+            <td class="px-4 py-4 text-right">${actionMenu([{ action: 'contract-detail', label: 'Ver detalle' }], 'contract', contract.id)}</td>
+          </tr>`;
+        }).join('');
+      }
+
+      function renderErrors() {
+        const criticalCount = errors.filter(error => error.severity === 'Crítico').length;
+        const resolvedCount = errors.filter(error => error.status === 'Resuelto').length;
+        const activeAgents = agents.filter(agent => agent.status === 'Activo').length;
+        renderMetricStrip('errors-metrics', [
+          { label: 'Incidentes del periodo', value: String(errors.length), note: 'Entradas de muestra', icon: 'bug_report', tone: 'text-brand dark:text-brand-dark', barTone: 'bg-brand dark:bg-brand-dark', percent: 72 },
+          { label: 'Incidentes críticos', value: String(criticalCount), note: 'Requiere triage', icon: 'error', tone: 'text-bad dark:text-bad-dark', barTone: 'bg-bad dark:bg-bad-dark', percent: Math.round(criticalCount / errors.length * 100) },
+          { label: 'Resueltos', value: String(resolvedCount), note: 'Estado de muestra', icon: 'task_alt', tone: 'text-good dark:text-good-dark', barTone: 'bg-good dark:bg-good-dark', percent: Math.round(resolvedCount / errors.length * 100) },
+          { label: 'Agentes nominales', value: `${activeAgents} / ${agents.length}`, note: 'Estado de flota', icon: 'monitor_heart', tone: 'text-good dark:text-good-dark', barTone: 'bg-good dark:bg-good-dark', percent: Math.round(activeAgents / agents.length * 100) },
+        ]);
+        document.getElementById('errors-table').innerHTML = errors.map(error => {
+          const agent = getAgent(error.agentId);
+          return `<tr class="hover:bg-panel-raised dark:hover:bg-panel-raised-dark">
+            <td class="whitespace-nowrap px-4 py-4 font-mono text-xs">${escapeHtml(error.timestamp)} UTC</td><td class="px-4 py-4 font-medium">${escapeHtml(agent.name)}</td>
+            <td class="min-w-64 px-4 py-4">${escapeHtml(error.description)}</td>
+            <td class="px-4 py-4"><span class="${severityBadgeClass(error.severity)}">${escapeHtml(error.severity)} · ${escapeHtml(error.type)} · ${escapeHtml(error.code)}</span></td>
+            <td class="px-4 py-4"><span class="${badgeClass(error.status)}">${escapeHtml(error.status)}</span></td>
+            <td class="px-4 py-4 text-right">${actionMenu([{ action: 'error-detail', label: 'Ver detalle' }, { action: 'error-resolve', label: 'Marcar como resuelto' }], 'error', error.id)}</td>
+          </tr>`;
+        }).join('');
+      }
+
+      function renderAll() {
+        renderDashboard();
+        renderUsers();
+        renderAgents();
+        renderSkills();
+        renderContracts();
+        renderErrors();
+      }
+
+      function setActiveSection(sectionId) {
+        if (!sectionLabels[sectionId]) return;
+        document.querySelectorAll('[data-section]').forEach(section => {
+          section.classList.toggle('hidden', section.id !== sectionId);
+        });
+        document.querySelectorAll('[data-view]').forEach(button => {
+          if (button.dataset.view === sectionId) button.setAttribute('aria-current', 'page');
+          else button.removeAttribute('aria-current');
+        });
+        document.getElementById('current-section-label').textContent = sectionLabels[sectionId];
+        closeMenus();
+      }
+
+      function closeMenus(except = null) {
+        document.querySelectorAll('[data-menu-root]').forEach(root => {
+          if (root !== except) {
+            const menu = root.querySelector('[role="menu"]');
+            menu.classList.add('hidden');
+            menu.classList.remove('bottom-full', 'top-auto', 'mb-1');
+            menu.classList.add('top-full', 'mt-1');
+            root.querySelector('[data-menu-toggle]').setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      function positionMenu(menuButton, menu) {
+        const buttonRect = menuButton.getBoundingClientRect();
+        const scrollContainer = menuButton.closest('.overflow-x-auto');
+        const containerRect = scrollContainer ? scrollContainer.getBoundingClientRect() : { top: 0, bottom: window.innerHeight };
+        const spaceBelow = Math.min(window.innerHeight, containerRect.bottom) - buttonRect.bottom;
+        const spaceAbove = buttonRect.top - Math.max(0, containerRect.top);
+        const opensUp = spaceBelow < menu.scrollHeight && spaceAbove > spaceBelow;
+
+        menu.classList.toggle('bottom-full', opensUp);
+        menu.classList.toggle('top-auto', opensUp);
+        menu.classList.toggle('mb-1', opensUp);
+        menu.classList.toggle('mt-1', !opensUp);
+        menu.classList.toggle('top-full', !opensUp);
+      }
+
+      function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.remove('hidden');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.add('hidden'), 2800);
+      }
+
+      function openModal(title, content) {
+        lastFocusedElement = document.activeElement;
+        dialogTitle.textContent = title;
+        dialogBody.innerHTML = content;
+        modalBackdrop.classList.remove('hidden');
+        modalBackdrop.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+        document.querySelector('[data-close-modal]').focus();
+      }
+
+      function closeModal() {
+        modalBackdrop.classList.add('hidden');
+        modalBackdrop.classList.remove('flex');
+        document.body.classList.remove('overflow-hidden');
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
+      }
+
+      function detailRows(pairs) {
+        return `<dl class="grid gap-3 sm:grid-cols-2">${pairs.map(([label, value]) => `<div class="border border-line p-3 dark:border-line-dark"><dt class="font-mono text-xs uppercase text-quiet dark:text-quiet-dark">${escapeHtml(label)}</dt><dd class="mt-1 break-words text-sm font-medium">${escapeHtml(value)}</dd></div>`).join('')}</dl>`;
+      }
+
+      function showUser(user) {
+        openModal('Registro de usuario', detailRows([['ID', user.id], ['Nombre', user.name], ['Email', user.email], ['Plan', user.plan], ['Estado', user.status], ['Empresa / tenant', user.tenant], ['Rol', user.role], ['Cuota', user.quota], ['Fecha de alta', user.joined]]));
+      }
+
+      function showAgent(agent) {
+        const skillText = agent.skills.map(id => getSkill(id).name).join(', ');
+        openModal(`Configurar ${agent.name}`, `<form id="agent-config-form" data-agent-id="${escapeHtml(agent.id)}" class="space-y-4"><p class="text-sm text-quiet dark:text-quiet-dark">${escapeHtml(agent.id)} · ${escapeHtml(agent.tenant)} · ${escapeHtml(agent.model)}</p><p class="text-sm"><span class="font-semibold">Skills:</span> ${escapeHtml(skillText)}</p><label class="block text-sm font-semibold" for="agent-prompt">Prompt de sistema</label><textarea id="agent-prompt" name="prompt" rows="8" class="w-full resize-y border border-line bg-canvas p-3 font-mono text-sm leading-6 text-ink focus:border-brand focus:outline-none dark:border-line-dark dark:bg-canvas-dark dark:text-ink-dark dark:focus:border-brand-dark">${escapeHtml(agent.prompt)}</textarea><div class="flex justify-end gap-2"><button type="button" data-close-modal class="border border-line px-4 py-2 text-sm dark:border-line-dark">Cancelar</button><button type="submit" class="bg-brand px-4 py-2 text-sm font-semibold text-white dark:bg-brand-dark dark:text-[#1000a9]">Guardar en esta sesión</button></div></form>`);
+      }
+
+      function showSkill(skill) {
+        const assigned = agents.filter(agent => agent.skills.includes(skill.id));
+        const assignedNames = assigned.length ? assigned.map(agent => `${agent.name} · ${agent.tenant}`).join('\n') : 'Sin agentes asignados';
+        openModal('Detalle de skill', detailRows([['Nombre', skill.name], ['Versión', skill.version], ['Descripción', skill.description], ['Agentes habilitados', String(assigned.length)], ['Agentes', assignedNames]]));
+      }
+
+      function showContract(contract) {
+        const agent = getAgent(contract.agentId);
+        const itemRows = Object.entries(contract.skillPrices).map(([skillId, amount]) => `<tr><td class="border-b border-line px-3 py-2 dark:border-line-dark">${escapeHtml(getSkill(skillId).name)}</td><td class="border-b border-line px-3 py-2 text-right font-mono dark:border-line-dark">${formatMoney(amount)}</td></tr>`).join('');
+        openModal('Desglose del contrato', `${detailRows([['Contrato', contract.id], ['Cliente', contract.tenant], ['Agente', agent.name], ['Estado', contract.status], ['Inicio', contract.start], ['Fin', contract.end], ['Importe total pagado', formatMoney(contract.paid)], ['Base del agente', formatMoney(contract.base)], ['Descuento aplicado', formatMoney(contract.discount)]])}<div class="mt-5"><h3 class="mb-2 font-display font-semibold">Precio individual de skills</h3><div class="overflow-x-auto"><table class="w-full text-sm"><thead class="bg-panel-raised text-left font-mono text-xs uppercase dark:bg-panel-raised-dark"><tr><th class="px-3 py-2">Skill</th><th class="px-3 py-2 text-right">Precio</th></tr></thead><tbody>${itemRows}</tbody></table></div></div>`);
+      }
+
+      function showError(error) {
+        const agent = getAgent(error.agentId);
+        openModal('Detalle de error', `${detailRows([['Incidente', error.id], ['Timestamp UTC', error.timestamp], ['Agente', agent.name], ['Tipo', error.type], ['Código', error.code], ['Severidad', error.severity], ['Estado', error.status], ['Descripción', error.description]])}<div class="mt-5"><h3 class="mb-2 font-display font-semibold">Traza completa</h3><pre class="overflow-x-auto border border-line bg-slate-950 p-4 font-mono text-xs leading-6 text-slate-100 dark:border-line-dark">${escapeHtml(error.trace)}</pre></div>`);
+      }
+
+      function applyTheme(isDark) {
+        document.documentElement.classList.toggle('dark', isDark);
+        const themeToggle = document.querySelector('[data-theme-toggle]');
+        themeToggle.setAttribute('aria-label', isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+        document.querySelector('[data-theme-icon]').textContent = isDark ? '☼' : '☾';
+        document.querySelector('[data-theme-label]').textContent = isDark ? 'Modo claro' : 'Modo oscuro';
+        try {
+          localStorage.setItem('agenthub_theme', isDark ? 'dark' : 'light');
+        } catch (_) {
+          showToast('No se pudo guardar la preferencia del tema en este navegador.');
+        }
+      }
+
+      document.addEventListener('click', event => {
+        const logsButton = event.target.closest('[data-open-logs]');
+        if (logsButton) {
+          setActiveSection('logs');
+          return;
+        }
+
+        const viewButton = event.target.closest('[data-view]');
+        if (viewButton) {
+          setActiveSection(viewButton.dataset.view);
+          return;
+        }
+
+        const themeButton = event.target.closest('[data-theme-toggle]');
+        if (themeButton) {
+          applyTheme(!document.documentElement.classList.contains('dark'));
+          return;
+        }
+
+        const menuButton = event.target.closest('[data-menu-toggle]');
+        if (menuButton) {
+          event.stopPropagation();
+          const root = menuButton.closest('[data-menu-root]');
+          const menu = root.querySelector('[role="menu"]');
+          const shouldOpen = menu.classList.contains('hidden');
+          closeMenus(root);
+          menu.classList.toggle('hidden', !shouldOpen);
+          menuButton.setAttribute('aria-expanded', String(shouldOpen));
+          if (shouldOpen) positionMenu(menuButton, menu);
+          return;
+        }
+
+        const accordionButton = event.target.closest('[data-accordion]');
+        if (accordionButton) {
+          const panel = document.getElementById(accordionButton.getAttribute('aria-controls'));
+          const expanded = accordionButton.getAttribute('aria-expanded') === 'true';
+          accordionButton.setAttribute('aria-expanded', String(!expanded));
+          panel.classList.toggle('max-h-0', expanded);
+          panel.classList.toggle('max-h-96', !expanded);
+          panel.classList.toggle('mt-0', expanded);
+          panel.classList.toggle('mt-3', !expanded);
+          panel.classList.toggle('opacity-0', expanded);
+          panel.classList.toggle('opacity-100', !expanded);
+          return;
+        }
+
+        const closeButton = event.target.closest('[data-close-modal]');
+        if (closeButton) {
+          closeModal();
+          return;
+        }
+
+        const actionButton = event.target.closest('[data-action]');
+        if (actionButton) {
+          closeMenus();
+          const recordId = actionButton.dataset.id;
+          if (actionButton.dataset.action === 'user-detail') showUser(users.find(user => user.id === recordId));
+          if (actionButton.dataset.action === 'agent-config') showAgent(getAgent(recordId));
+          if (actionButton.dataset.action === 'skill-detail') showSkill(getSkill(recordId));
+          if (actionButton.dataset.action === 'contract-detail') showContract(contracts.find(contract => contract.id === recordId));
+          if (actionButton.dataset.action === 'error-detail') showError(errors.find(error => error.id === recordId));
+          if (actionButton.dataset.action === 'error-resolve') {
+            const error = errors.find(item => item.id === recordId);
+            error.status = 'Resuelto';
+            renderErrors();
+            showToast(`${error.id} marcado como resuelto en esta sesión.`);
+          }
+          if (actionButton.dataset.action === 'demo-delete') showToast('Acción de demostración: no se modificaron datos ni se contactó un backend.');
+          return;
+        }
+
+        if (!event.target.closest('[data-menu-root]')) closeMenus();
+      });
+
+      document.addEventListener('submit', event => {
+        if (event.target.id !== 'agent-config-form') return;
+        event.preventDefault();
+        const agent = getAgent(event.target.dataset.agentId);
+        agent.prompt = document.getElementById('agent-prompt').value;
+        closeModal();
+        showToast('Prompt actualizado solo en esta sesión de demostración.');
+      });
+
+      modalBackdrop.addEventListener('click', event => {
+        if (event.target === modalBackdrop) closeModal();
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !modalBackdrop.classList.contains('hidden')) closeModal();
+      });
+
+      renderAll();
+      setActiveSection('dashboard');
+      applyTheme(document.documentElement.classList.contains('dark'));
+    </script>
+
+  </body>
+</html>
